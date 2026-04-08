@@ -30,7 +30,7 @@ export default function Hero() {
         background: "linear-gradient(to top,#faf6f0,transparent)",
       }} />
 
-      <div className="wrap" style={{ position: "relative", zIndex: 2, padding: "100px 20px 100px", width: "100%" }}>
+      <div className="wrap" style={{ position: "relative", zIndex: 2, padding: "100px 20px 100px", width: "100%", boxSizing: "border-box" }}>
         {/* Rating badge */}
         <div style={{ ...anim(0), display: "inline-flex", alignItems: "center", gap: 7,
           background: "rgba(200,169,110,.13)", border: "1px solid rgba(200,169,110,.38)",
@@ -40,22 +40,22 @@ export default function Hero() {
         </div>
 
         {/* Headline */}
-        <h1 className="pf" style={{ ...anim(80), fontSize: "clamp(44px,10vw,90px)", fontWeight: 900, lineHeight: 1.02, color: "#faf6f0", marginBottom: 4 }}>
+        <h1 className="pf" style={{ ...anim(80), fontSize: "clamp(38px,10vw,90px)", fontWeight: 900, lineHeight: 1.02, color: "#faf6f0", marginBottom: 4 }}>
           Imperial
         </h1>
-        <h1 className="pf gold" style={{ ...anim(130), fontSize: "clamp(44px,10vw,90px)", fontWeight: 900, lineHeight: 1.02, fontStyle: "italic", marginBottom: 10 }}>
+        <h1 className="pf gold" style={{ ...anim(130), fontSize: "clamp(38px,10vw,90px)", fontWeight: 900, lineHeight: 1.02, fontStyle: "italic", marginBottom: 10 }}>
           Kitchen
         </h1>
-        <p className="cin" style={{ ...anim(180), color: "rgba(250,246,240,.45)", fontSize: "clamp(9px,2vw,12px)", letterSpacing: "5px", marginBottom: 20 }}>
+        <p className="cin" style={{ ...anim(180), color: "rgba(250,246,240,.45)", fontSize: "clamp(8px,2vw,12px)", letterSpacing: "clamp(2px,1vw,5px)", marginBottom: 20 }}>
           & RESTAURANT · PAPA ASHAFA, LAGOS
         </p>
 
-        <p className="pf" style={{ ...anim(230), color: "rgba(232,201,138,.9)", fontSize: "clamp(15px,3vw,20px)", fontStyle: "italic", marginBottom: 32, maxWidth: 460 }}>
+        <p className="pf" style={{ ...anim(230), color: "rgba(232,201,138,.9)", fontSize: "clamp(14px,3vw,20px)", fontStyle: "italic", marginBottom: 32, maxWidth: 460 }}>
           &ldquo;Where Every Meal is Royally Prepared&rdquo;
         </p>
 
         {/* Info pills */}
-        <div style={{ ...anim(280), display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 34 }}>
+        <div style={{ ...anim(280), display: "flex", flexDirection: "column", gap: 8, marginBottom: 34 }} className="hero-pills">
           {[
             [<MapPin size={12} key="m" />, "Papa Ashafa, Lagos"],
             [<Clock size={12} key="c" />, "Open Daily · 8:30 PM"],
@@ -68,28 +68,28 @@ export default function Hero() {
         </div>
 
         {/* CTA buttons */}
-        <div style={{ ...anim(340), display: "flex", flexWrap: "wrap", gap: 12 }}>
-          <a href="#menu" className="cin" style={{
+        <div style={{ ...anim(340), display: "flex", flexWrap: "wrap", gap: 12 }} className="hero-ctas">
+          <a href="#menu" className="cin hero-btn-primary" style={{
             background: "linear-gradient(135deg,#c8a96e,#e8c98a)", color: "#0f0a1a",
             padding: "14px 32px", borderRadius: 4, fontWeight: 700,
             fontSize: 11, letterSpacing: "2px", boxShadow: "0 6px 24px rgba(200,169,110,.35)",
-            transition: "opacity .2s",
+            transition: "opacity .2s", textAlign: "center",
           }}
             onMouseEnter={e => e.currentTarget.style.opacity = ".88"}
             onMouseLeave={e => e.currentTarget.style.opacity = "1"}
           >VIEW MENU</a>
-          <a href="#catering" className="cin" style={{
+          <a href="#catering" className="cin hero-btn-secondary" style={{
             background: "rgba(255,255,255,.08)", color: "#faf6f0",
             padding: "14px 32px", borderRadius: 4, fontWeight: 600,
             fontSize: 11, letterSpacing: "2px",
             border: "1px solid rgba(255,255,255,.2)", backdropFilter: "blur(8px)",
-            transition: "background .2s",
+            transition: "background .2s", textAlign: "center",
           }}
             onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,.15)"}
             onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,.08)"}
           >BOOK CATERING</a>
           <a href="tel:08074101786" className="cin" style={{
-            display: "flex", alignItems: "center", gap: 6,
+            display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
             background: "transparent", color: "rgba(250,246,240,.7)",
             padding: "14px 24px", borderRadius: 4, fontWeight: 600,
             fontSize: 11, letterSpacing: "1.5px",
@@ -108,6 +108,15 @@ export default function Hero() {
         <span className="cin" style={{ color: "#c8a96e", fontSize: 8, letterSpacing: "4px" }}>SCROLL</span>
         <ChevronDown size={14} color="#c8a96e" />
       </div>
+      <style>{`
+        @keyframes float { 0%,100% { transform:translateX(-50%) translateY(0); } 50% { transform:translateX(-50%) translateY(-6px); } }
+        @media(max-width:479px){
+          .hero-btn-primary, .hero-btn-secondary { width:100%; box-sizing:border-box; }
+        }
+        @media(min-width:480px){
+          .hero-pills { flex-direction:row !important; flex-wrap:wrap; }
+        }
+      `}</style>
     </section>
   );
 }

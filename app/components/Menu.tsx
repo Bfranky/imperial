@@ -95,10 +95,9 @@ export default function Menu() {
         </div>
 
         {/* Tab scroll bar */}
-        <div style={{
+        <div className="menu-tab-bar" style={{
           display: "flex", gap: 8, overflowX: "auto", paddingBottom: 4,
-          scrollbarWidth: "none", marginBottom: 32,
-          WebkitOverflowScrolling: "touch",
+          marginBottom: 32, WebkitOverflowScrolling: "touch",
         }}>
           {cats.map(c => (
             <button key={c.id} onClick={() => setActive(c.id)} style={{
@@ -179,6 +178,12 @@ export default function Menu() {
           display: grid;
           grid-template-columns: 1fr;
         }
+        .menu-tab-bar {
+          padding: 0 20px 4px;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .menu-tab-bar::-webkit-scrollbar { display: none; }
         @media(min-width:768px){
           .menu-panel { grid-template-columns: 340px 1fr; }
           .menu-photo { height: auto; min-height: 480px; }

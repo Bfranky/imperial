@@ -87,7 +87,8 @@ export default function Navbar() {
             {links.map(l => (
               <a key={l.label} href={l.href} onClick={() => setOpen(false)} className="cin" style={{
                 display: "block", color: "rgba(250,246,240,.7)", fontSize: 11,
-                letterSpacing: "2px", padding: "13px 0", borderBottom: "1px solid rgba(200,169,110,.08)",
+                letterSpacing: "2px", padding: "16px 0", borderBottom: "1px solid rgba(200,169,110,.08)",
+                minHeight: 48,
               }}>{l.label.toUpperCase()}</a>
             ))}
             <a href="tel:08074101786" style={{

@@ -23,9 +23,8 @@ export default function TrustBand() {
         </div>
 
         {/* Stats grid — 2 cols mobile, 4 cols desktop */}
-        <div style={{
+        <div className="trust-grid" style={{
           display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
           gap: 1,
           background: "rgba(200,169,110,.1)",
           border: "1px solid rgba(200,169,110,.12)",
@@ -46,9 +45,8 @@ export default function TrustBand() {
       </div>
 
       <style>{`
-        @media(min-width:640px){
-          div[style*="repeat(2, 1fr)"] { grid-template-columns: repeat(4,1fr) !important; }
-        }
+        .trust-grid { grid-template-columns: repeat(2, 1fr); }
+        @media(min-width:640px){ .trust-grid { grid-template-columns: repeat(4,1fr); } }
       `}</style>
     </section>
   );

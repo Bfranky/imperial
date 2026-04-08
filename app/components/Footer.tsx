@@ -90,7 +90,8 @@ export default function Footer() {
       </div>
 
       <style>{`
-        .foot-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+        .foot-grid { display:grid; grid-template-columns:1fr; gap:28px; }
+        @media(min-width:480px){ .foot-grid { grid-template-columns:1fr 1fr; gap:32px; } }
         @media(min-width:768px){ .foot-grid { grid-template-columns:1.6fr 1fr 1fr 1.2fr; gap:40px; } }
       `}</style>
     </footer>

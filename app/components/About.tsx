@@ -114,15 +114,17 @@ export default function About() {
           align-items: center;
         }
         .about-img-wrap { order: -1; }
+        .about-text { order: 1; }
         .dish-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 12px;
+          gap: 10px;
         }
         @media(min-width:768px){
           .about-cols { grid-template-columns: 1fr 1fr; gap: 64px; }
           .about-img-wrap { order: 1; }
-          .dish-grid { grid-template-columns: repeat(4, 1fr); }
+          .about-text { order: 0; }
+          .dish-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
         }
       `}</style>
     </section>

@@ -116,7 +116,7 @@ export default function Catering() {
       <style>{`
         .cat-grid { display:grid; grid-template-columns:1fr; gap:16px; }
         @media(min-width:520px){ .cat-grid { grid-template-columns:repeat(2,1fr); } }
-        @media(min-width:900px){ .cat-grid { grid-template-columns:repeat(4,1fr); } }
+        @media(min-width:1024px){ .cat-grid { grid-template-columns:repeat(4,1fr); } }
       `}</style>
     </section>
   );

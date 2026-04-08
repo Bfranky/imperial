@@ -101,11 +101,7 @@ export default function Contact() {
               ].map(f => (
                 <div key={f.l}>
                   <label className="cin" style={{ display: "block", color: "#8a7a65", fontSize: 8, letterSpacing: "2px", marginBottom: 6 }}>{f.l}</label>
-                  <input type={f.t} placeholder={f.p} style={{
-                    width: "100%", padding: "11px 14px", border: "1px solid rgba(90,74,56,.18)",
-                    borderRadius: 7, fontSize: 14, color: "#0f0a1a", outline: "none", background: "#faf6f0",
-                    transition: "border-color .2s",
-                  }}
+                  <input type={f.t} placeholder={f.p} className="contact-input"
                     onFocus={e => e.target.style.borderColor = "#c8a96e"}
                     onBlur={e => e.target.style.borderColor = "rgba(90,74,56,.18)"}
                   />
@@ -114,7 +110,7 @@ export default function Contact() {
 
               <div>
                 <label className="cin" style={{ display: "block", color: "#8a7a65", fontSize: 8, letterSpacing: "2px", marginBottom: 6 }}>INQUIRY TYPE</label>
-                <select style={{ width: "100%", padding: "11px 14px", border: "1px solid rgba(90,74,56,.18)", borderRadius: 7, fontSize: 14, color: "#0f0a1a", outline: "none", background: "#faf6f0", cursor: "pointer" }}>
+                <select className="contact-select">
                   <option>Restaurant Reservation</option>
                   <option>Wedding Catering</option>
                   <option>Birthday Party</option>
@@ -126,11 +122,7 @@ export default function Contact() {
 
               <div>
                 <label className="cin" style={{ display: "block", color: "#8a7a65", fontSize: 8, letterSpacing: "2px", marginBottom: 6 }}>MESSAGE</label>
-                <textarea rows={4} placeholder="Event date, number of guests, special requests..." style={{
-                  width: "100%", padding: "11px 14px", border: "1px solid rgba(90,74,56,.18)",
-                  borderRadius: 7, fontSize: 14, color: "#0f0a1a", outline: "none", background: "#faf6f0",
-                  resize: "vertical", fontFamily: "Inter, sans-serif", transition: "border-color .2s",
-                }}
+                <textarea rows={4} placeholder="Event date, number of guests, special requests..." className="contact-textarea"
                   onFocus={e => e.target.style.borderColor = "#c8a96e"}
                   onBlur={e => e.target.style.borderColor = "rgba(90,74,56,.18)"}
                 />
@@ -157,6 +149,9 @@ export default function Contact() {
         .contact-grid { display:grid; grid-template-columns:1fr; gap:24px; }
         @media(min-width:768px){ .contact-grid { grid-template-columns:1fr 1fr; gap:40px; } }
         @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+        .contact-input { width:100%; box-sizing:border-box; padding:11px 14px; border:1px solid rgba(90,74,56,.18); border-radius:7px; font-size:14px; color:#0f0a1a; outline:none; background:#faf6f0; transition:border-color .2s; }
+        .contact-select { width:100%; box-sizing:border-box; padding:11px 14px; border:1px solid rgba(90,74,56,.18); border-radius:7px; font-size:14px; color:#0f0a1a; outline:none; background:#faf6f0; cursor:pointer; }
+        .contact-textarea { width:100%; box-sizing:border-box; padding:11px 14px; border:1px solid rgba(90,74,56,.18); border-radius:7px; font-size:14px; color:#0f0a1a; outline:none; background:#faf6f0; resize:vertical; font-family:Inter,sans-serif; transition:border-color .2s; }
       `}</style>
     </section>
   );
