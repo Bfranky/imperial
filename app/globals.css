@@ -1,84 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,700&family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 :root {
   --gold: #c8a96e;
-  --gold-light: #e8c98a;
-  --gold-pale: #f5e6c8;
+  --gold-lt: #e8c98a;
+  --gold-pale: #f7edd8;
   --dark: #0f0a1a;
-  --dark-2: #1c1228;
-  --dark-3: #271a38;
+  --dark2: #1a1128;
+  --dark3: #271838;
   --cream: #faf6f0;
-  --cream-2: #f2ebe0;
-  --crimson: #8b1a1a;
-  --text-muted: #8a7a65;
+  --cream2: #f2ebe0;
+  --muted: #7a6a56;
+  --border: rgba(200,169,110,0.18);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--cream);
-  color: var(--dark);
-  overflow-x: hidden;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; line-height: 1.6; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; }
+button { cursor: pointer; font-family: inherit; }
 
-.font-playfair { font-family: 'Playfair Display', serif; }
-.font-cinzel { font-family: 'Cinzel', serif; }
+.pf { font-family: 'Playfair Display', serif; }
+.cin { font-family: 'Cinzel', serif; }
 
-@keyframes shimmer {
-  0% { background-position: -400% center; }
-  100% { background-position: 400% center; }
-}
-.gold-text {
-  background: linear-gradient(90deg, #a07830 0%, var(--gold) 25%, var(--gold-light) 50%, var(--gold) 75%, #a07830 100%);
-  background-size: 400% auto;
+/* Gold shimmer */
+@keyframes shimmer { 0%{background-position:-300% center} 100%{background-position:300% center} }
+.gold {
+  background: linear-gradient(90deg,#a07030,var(--gold),var(--gold-lt),var(--gold),#a07030);
+  background-size: 300% auto;
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer 5s linear infinite;
 }
 
-@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
-@keyframes scaleIn { from{opacity:0;transform:scale(0.95)} to{opacity:1;transform:scale(1)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
 
-.anim-up { animation: fadeUp 0.7s ease forwards; }
-.float { animation: float 4s ease-in-out infinite; }
+.float { animation: float 3.5s ease-in-out infinite; }
 
-/* Hover lift */
-.lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.lift:hover { transform: translateY(-6px); box-shadow: 0 24px 64px rgba(15,10,26,0.18); }
-
-/* Gold rule */
-.rule {
-  display: flex; align-items: center; gap: 14px;
-}
-.rule::before, .rule::after {
-  content: ''; flex: 1; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-
-/* Photo overlay gradient */
-.photo-overlay {
-  background: linear-gradient(to top, rgba(15,10,26,0.85) 0%, rgba(15,10,26,0.4) 50%, rgba(15,10,26,0.1) 100%);
-}
-
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--cream); }
-::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
-
-/* Tag pill */
-.tag {
-  display: inline-flex; align-items: center; gap: 5px;
-  background: rgba(200,169,110,0.12);
-  border: 1px solid rgba(200,169,110,0.28);
-  border-radius: 50px; padding: 5px 14px;
-  color: var(--gold); font-size: 12px; letter-spacing: 0.3px;
-}
+/* Lift on hover */
+.lift { transition: transform .25s ease, box-shadow .25s ease; }
+.lift:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(15,10,26,.16); }
 
 /* Section label */
-.eyebrow {
-  font-family: 'Cinzel', serif;
-  font-size: 10px; letter-spacing: 5px; color: var(--gold);
-  text-transform: uppercase;
-}
+.eyebrow { font-family:'Cinzel',serif; font-size:10px; letter-spacing:4px; color:var(--gold); text-transform:uppercase; }
+
+/* Gold pill tag */
+.tag { display:inline-flex; align-items:center; gap:5px; background:rgba(200,169,110,.1); border:1px solid rgba(200,169,110,.25); border-radius:50px; padding:5px 13px; color:var(--gold); font-size:11px; white-space:nowrap; }
+
+/* Container */
+.wrap { max-width:1160px; margin:0 auto; padding:0 20px; }
+
+/* Responsive image cover */
+.cover { background-size:cover; background-position:center; background-repeat:no-repeat; }
+
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-thumb { background:var(--gold); border-radius:2px; }

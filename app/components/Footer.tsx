@@ -3,100 +3,95 @@ import { Phone, MapPin, Clock, Star } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#080512", borderTop: "1px solid rgba(200,169,110,0.15)" }}>
-      {/* Top CTA banner */}
+    <footer style={{ background: "#080512", borderTop: "1px solid rgba(200,169,110,.12)" }}>
+      {/* CTA banner */}
       <div style={{
-        background: "linear-gradient(135deg, #c8a96e 0%, #e8c98a 50%, #c8a96e 100%)",
-        padding: "48px 24px", textAlign: "center",
+        background: "linear-gradient(135deg,#c8a96e 0%,#e8c98a 50%,#c8a96e 100%)",
+        padding: "44px 20px", textAlign: "center",
       }}>
-        <h3 className="font-playfair" style={{ color: "#0f0a1a", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: "800", marginBottom: "8px" }}>
+        <h3 className="pf" style={{ color: "#0f0a1a", fontSize: "clamp(20px,5vw,34px)", fontWeight: 900, marginBottom: 8 }}>
           Ready to Order or Book Catering?
         </h3>
-        <p style={{ color: "rgba(15,10,26,0.65)", fontSize: "15px", marginBottom: "24px" }}>
-          Call us now — we&apos;re open daily until 8:30 PM
+        <p style={{ color: "rgba(15,10,26,.6)", fontSize: "clamp(13px,2.5vw,15px)", marginBottom: 22 }}>
+          Call us now — open daily until 8:30 PM
         </p>
-        <a href="tel:08074101786" className="font-cinzel" style={{
+        <a href="tel:08074101786" className="cin" style={{
+          display: "inline-flex", alignItems: "center", gap: 8,
           background: "#0f0a1a", color: "#c8a96e",
-          padding: "14px 40px", borderRadius: "4px",
-          textDecoration: "none", fontWeight: "700", fontSize: "13px", letterSpacing: "2px",
-          boxShadow: "0 8px 24px rgba(15,10,26,0.25)",
-          display: "inline-flex", alignItems: "center", gap: "10px",
-        }}>
-          📞 0807 410 1786
-        </a>
+          padding: "13px 32px", borderRadius: 4, fontWeight: 700,
+          fontSize: "clamp(11px,2.5vw,13px)", letterSpacing: "1.5px",
+          boxShadow: "0 8px 24px rgba(15,10,26,.25)",
+        }}>📞 0807 410 1786</a>
       </div>
 
       {/* Main footer */}
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "64px 24px 40px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1.2fr", gap: "48px", marginBottom: "48px" }}>
-
+      <div className="wrap" style={{ padding: "52px 20px 32px" }}>
+        <div className="foot-grid">
           {/* Brand */}
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
-              <div style={{ width: "44px", height: "44px", borderRadius: "50%", background: "linear-gradient(135deg, #c8a96e, #e8c98a)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px" }}>👑</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+              <div style={{ width: 40, height: 40, borderRadius: "50%", background: "linear-gradient(135deg,#c8a96e,#e8c98a)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 17 }}>👑</div>
               <div>
-                <div className="font-cinzel" style={{ color: "#c8a96e", fontSize: "13px", fontWeight: "700", letterSpacing: "2px" }}>IMPERIAL KITCHEN</div>
-                <div className="font-playfair" style={{ color: "rgba(250,246,240,0.4)", fontSize: "11px", fontStyle: "italic" }}>& Restaurant</div>
+                <div className="cin" style={{ color: "#c8a96e", fontSize: 11, fontWeight: 700, letterSpacing: "2px" }}>IMPERIAL KITCHEN</div>
+                <div className="pf" style={{ color: "rgba(250,246,240,.4)", fontSize: 10, fontStyle: "italic" }}>& Restaurant</div>
               </div>
             </div>
-            <p className="font-playfair" style={{ color: "rgba(232,201,138,0.65)", fontSize: "16px", fontStyle: "italic", lineHeight: "1.7", marginBottom: "16px" }}>
-              &ldquo;Where Every Meal is<br />Royally Prepared&rdquo;
+            <p className="pf" style={{ color: "rgba(232,201,138,.6)", fontSize: "clamp(13px,2.5vw,15px)", fontStyle: "italic", lineHeight: 1.7, marginBottom: 14 }}>
+              &ldquo;Where Every Meal is Royally Prepared&rdquo;
             </p>
-            <div style={{ display: "flex", gap: "4px" }}>
-              {[1,2,3,4,5].map(i => <Star key={i} size={13} fill="#c8a96e" color="#c8a96e" />)}
-              <span style={{ color: "#c8a96e", fontSize: "12px", marginLeft: "6px" }}>5.0 Perfect</span>
+            <div style={{ display: "flex", gap: 3 }}>
+              {[1,2,3,4,5].map(i => <Star key={i} size={12} fill="#c8a96e" color="#c8a96e" />)}
+              <span style={{ color: "#c8a96e", fontSize: 11, marginLeft: 5 }}>5.0 Perfect</span>
             </div>
           </div>
 
-          {/* Links */}
+          {/* Nav */}
           <div>
-            <div className="font-cinzel" style={{ color: "#c8a96e", fontSize: "9px", letterSpacing: "3px", marginBottom: "20px" }}>NAVIGATION</div>
-            {["Home", "About Us", "Our Menu", "Services", "Catering", "Contact"].map(l => (
-              <a key={l} href={`#${l.toLowerCase().replace(" ", "")}`} style={{ display: "block", color: "rgba(250,246,240,0.45)", fontSize: "13px", textDecoration: "none", padding: "6px 0", transition: "color 0.2s" }}
+            <div className="cin" style={{ color: "#c8a96e", fontSize: 8, letterSpacing: "3px", marginBottom: 18 }}>NAVIGATION</div>
+            {[["Home","#home"],["About","#about"],["Menu","#menu"],["Services","#services"],["Catering","#catering"],["Contact","#contact"]].map(([l,h]) => (
+              <a key={l} href={h} style={{ display: "block", color: "rgba(250,246,240,.4)", fontSize: 13, padding: "5px 0", transition: "color .2s" }}
                 onMouseEnter={e => (e.target as HTMLAnchorElement).style.color = "#c8a96e"}
-                onMouseLeave={e => (e.target as HTMLAnchorElement).style.color = "rgba(250,246,240,0.45)"}
+                onMouseLeave={e => (e.target as HTMLAnchorElement).style.color = "rgba(250,246,240,.4)"}
               >{l}</a>
             ))}
           </div>
 
           {/* Services */}
           <div>
-            <div className="font-cinzel" style={{ color: "#c8a96e", fontSize: "9px", letterSpacing: "3px", marginBottom: "20px" }}>SERVICES</div>
-            {["Restaurant Dining", "Wedding Catering", "Birthday Parties", "Corporate Events", "Small Chops", "Takeaway"].map(s => (
-              <div key={s} style={{ color: "rgba(250,246,240,0.45)", fontSize: "13px", padding: "6px 0" }}>{s}</div>
+            <div className="cin" style={{ color: "#c8a96e", fontSize: 8, letterSpacing: "3px", marginBottom: 18 }}>SERVICES</div>
+            {["Restaurant Dining","Wedding Catering","Birthday Parties","Corporate Events","Small Chops","Takeaway"].map(s => (
+              <div key={s} style={{ color: "rgba(250,246,240,.4)", fontSize: 13, padding: "5px 0" }}>{s}</div>
             ))}
           </div>
 
           {/* Contact */}
           <div>
-            <div className="font-cinzel" style={{ color: "#c8a96e", fontSize: "9px", letterSpacing: "3px", marginBottom: "20px" }}>CONTACT</div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-              <a href="tel:08074101786" style={{ display: "flex", gap: "10px", textDecoration: "none", color: "rgba(250,246,240,0.6)", fontSize: "13px", alignItems: "flex-start" }}>
-                <Phone size={13} color="#c8a96e" style={{ marginTop: "2px", flexShrink: 0 }} />
-                0807 410 1786
+            <div className="cin" style={{ color: "#c8a96e", fontSize: 8, letterSpacing: "3px", marginBottom: 18 }}>CONTACT</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              <a href="tel:08074101786" style={{ display: "flex", gap: 8, color: "rgba(250,246,240,.5)", fontSize: 13, alignItems: "flex-start" }}>
+                <Phone size={12} color="#c8a96e" style={{ marginTop: 2, flexShrink: 0 }} />0807 410 1786
               </a>
-              <div style={{ display: "flex", gap: "10px", color: "rgba(250,246,240,0.6)", fontSize: "13px", alignItems: "flex-start" }}>
-                <MapPin size={13} color="#c8a96e" style={{ marginTop: "2px", flexShrink: 0 }} />
-                <span>30 Suraogumakin Street,<br />Papa Ashafa, Lagos</span>
+              <div style={{ display: "flex", gap: 8, color: "rgba(250,246,240,.5)", fontSize: 13, alignItems: "flex-start" }}>
+                <MapPin size={12} color="#c8a96e" style={{ marginTop: 2, flexShrink: 0 }} />
+                <span>30 Suraogumakin St,<br />Papa Ashafa, Lagos</span>
               </div>
-              <div style={{ display: "flex", gap: "10px", color: "rgba(250,246,240,0.6)", fontSize: "13px", alignItems: "flex-start" }}>
-                <Clock size={13} color="#c8a96e" style={{ marginTop: "2px", flexShrink: 0 }} />
-                <span>Daily · Until 8:30 PM</span>
+              <div style={{ display: "flex", gap: 8, color: "rgba(250,246,240,.5)", fontSize: 13, alignItems: "flex-start" }}>
+                <Clock size={12} color="#c8a96e" style={{ marginTop: 2, flexShrink: 0 }} />Daily · Until 8:30 PM
               </div>
             </div>
           </div>
         </div>
 
-        <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, rgba(200,169,110,0.2), transparent)", marginBottom: "24px" }} />
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
-          <div style={{ color: "rgba(250,246,240,0.25)", fontSize: "12px" }}>© {new Date().getFullYear()} Imperial Kitchen and Restaurant. All rights reserved.</div>
-          <div className="font-cinzel" style={{ color: "rgba(200,169,110,0.35)", fontSize: "9px", letterSpacing: "3px" }}>✦ IMPERIAL QUALITY · NIGERIAN FLAVOURS · LAGOS ✦</div>
+        <div style={{ height: 1, background: "linear-gradient(90deg,transparent,rgba(200,169,110,.18),transparent)", margin: "36px 0 20px" }} />
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
+          <div style={{ color: "rgba(250,246,240,.22)", fontSize: 11 }}>© {new Date().getFullYear()} Imperial Kitchen and Restaurant. All rights reserved.</div>
+          <div className="cin" style={{ color: "rgba(200,169,110,.28)", fontSize: 8, letterSpacing: "2.5px" }}>✦ IMPERIAL QUALITY · LAGOS ✦</div>
         </div>
       </div>
 
       <style>{`
-        @media(max-width:900px){div[style*="grid-template-columns: 2fr 1fr 1fr 1.2fr"]{grid-template-columns:1fr 1fr!important;}}
-        @media(max-width:500px){div[style*="grid-template-columns: 2fr 1fr 1fr 1.2fr"]{grid-template-columns:1fr!important;}}
+        .foot-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+        @media(min-width:768px){ .foot-grid { grid-template-columns:1.6fr 1fr 1fr 1.2fr; gap:40px; } }
       `}</style>
     </footer>
   );

@@ -1,112 +1,85 @@
 "use client";
 
+const services = [
+  {
+    badge:"DINE IN", badgeColor:"#c8a96e", badgeText:"#0f0a1a",
+    photo:"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=80&fit=crop",
+    icon:"🍽️", title:"Restaurant Dining", tagline:"Visit us. Dine in style.",
+    desc:"Made-to-order Nigerian and continental dishes in a warm, welcoming setting. Family-friendly, takeaway available. Open daily until 8:30 PM.",
+    tags:["Nigerian Cuisine","Continental","Grills","Soups & Swallows","Takeaway"],
+    cta:"VIEW MENU", href:"#menu",
+  },
+  {
+    badge:"CATERING", badgeColor:"#8b1a1a", badgeText:"#faf6f0",
+    photo:"https://images.unsplash.com/photo-1555244162-803834f70033?w=700&q=80&fit=crop",
+    icon:"🎉", title:"Professional Catering", tagline:"Your event. Unforgettable.",
+    desc:"Full-service catering for all occasions. Customised menus, professional staff, buffet setup. From 50 to 1,000+ guests.",
+    tags:["Weddings","Birthdays","Corporate","Small Chops","Full Setup"],
+    cta:"GET A QUOTE", href:"#catering",
+  },
+];
+
 export default function Services() {
   return (
-    <section id="services" style={{ background: "#0f0a1a", padding: "100px 24px", position: "relative", overflow: "hidden" }}>
-      {/* Subtle noise/grid bg */}
+    <section id="services" style={{ background: "#0f0a1a", padding: "80px 20px", position: "relative" }}>
+      {/* Grid overlay */}
       <div style={{
-        position: "absolute", inset: 0, opacity: 0.035,
-        backgroundImage: "linear-gradient(rgba(200,169,110,1) 1px, transparent 1px), linear-gradient(90deg, rgba(200,169,110,1) 1px, transparent 1px)",
-        backgroundSize: "60px 60px", pointerEvents: "none",
+        position: "absolute", inset: 0, opacity: .035, pointerEvents: "none",
+        backgroundImage: "linear-gradient(rgba(200,169,110,1) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,110,1) 1px,transparent 1px)",
+        backgroundSize: "55px 55px",
       }} />
 
-      <div style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}>
-        <div style={{ textAlign: "center", marginBottom: "64px" }}>
-          <p className="eyebrow" style={{ marginBottom: "14px" }}>✦ TWO WAYS TO DINE ✦</p>
-          <h2 className="font-playfair" style={{ fontSize: "clamp(30px, 4vw, 52px)", fontWeight: "800", color: "#faf6f0", lineHeight: "1.12" }}>
+      <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
+        <div style={{ textAlign: "center", marginBottom: 52 }}>
+          <p className="eyebrow" style={{ marginBottom: 14 }}>✦ TWO WAYS TO DINE ✦</p>
+          <h2 className="pf" style={{ fontSize: "clamp(28px,6vw,50px)", fontWeight: 900, color: "#faf6f0", lineHeight: 1.1 }}>
             Experience Imperial Cuisine
           </h2>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
-
-          {/* Restaurant card */}
-          <div className="lift" style={{
-            borderRadius: "16px", overflow: "hidden",
-            border: "1px solid rgba(200,169,110,0.15)",
-            background: "#1c1228",
-            cursor: "default",
-          }}>
-            {/* Photo */}
-            <div style={{
-              height: "280px", position: "relative",
-              backgroundImage: "url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=80&fit=crop')",
-              backgroundSize: "cover", backgroundPosition: "center",
+        <div className="srv-grid">
+          {services.map(s => (
+            <div key={s.title} className="lift" style={{
+              borderRadius: 14, overflow: "hidden",
+              background: "#1a1128", border: "1px solid rgba(200,169,110,.13)",
             }}>
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, #1c1228 0%, transparent 60%)" }} />
-              <div style={{ position: "absolute", top: "16px", left: "16px", background: "rgba(200,169,110,0.9)", borderRadius: "50px", padding: "6px 14px" }}>
-                <span className="font-cinzel" style={{ color: "#0f0a1a", fontSize: "10px", letterSpacing: "1.5px", fontWeight: "700" }}>DINE IN</span>
+              {/* Photo */}
+              <div style={{ position: "relative", height: "clamp(180px,28vw,260px)" }}>
+                <div className="cover" style={{ position: "absolute", inset: 0, backgroundImage: `url('${s.photo}')` }} />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top,#1a1128,transparent 60%)" }} />
+                <div style={{
+                  position: "absolute", top: 14, left: 14,
+                  background: s.badgeColor, color: s.badgeText,
+                  borderRadius: 50, padding: "5px 13px",
+                }}>
+                  <span className="cin" style={{ fontSize: 9, fontWeight: 700, letterSpacing: "1.5px" }}>{s.badge}</span>
+                </div>
               </div>
-            </div>
-            <div style={{ padding: "32px" }}>
-              <div style={{ fontSize: "32px", marginBottom: "12px" }}>🍽️</div>
-              <h3 className="font-playfair" style={{ color: "#faf6f0", fontSize: "26px", fontWeight: "700", marginBottom: "12px" }}>
-                Restaurant Dining
-              </h3>
-              <p style={{ color: "rgba(250,246,240,0.6)", fontSize: "14px", lineHeight: "1.8", marginBottom: "24px" }}>
-                Visit us for breakfast, lunch, or dinner. Made-to-order Nigerian and continental dishes in a warm, welcoming setting. Family-friendly, takeaway available, open until 8:30 PM daily.
-              </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "28px" }}>
-                {["Nigerian Cuisine", "Continental Dishes", "Grills & Proteins", "Soups & Swallows", "Takeaway"].map(t => (
-                  <span key={t} className="tag" style={{ fontSize: "11px" }}>{t}</span>
-                ))}
-              </div>
-              <a href="#menu" className="font-cinzel" style={{
-                display: "inline-block",
-                background: "linear-gradient(135deg, #c8a96e, #e8c98a)",
-                color: "#0f0a1a", padding: "12px 28px", borderRadius: "4px",
-                textDecoration: "none", fontWeight: "700", fontSize: "10px", letterSpacing: "2px",
-              }}>
-                VIEW MENU →
-              </a>
-            </div>
-          </div>
 
-          {/* Catering card */}
-          <div className="lift" style={{
-            borderRadius: "16px", overflow: "hidden",
-            border: "1px solid rgba(200,169,110,0.15)",
-            background: "#1c1228",
-            cursor: "default",
-          }}>
-            {/* Photo */}
-            <div style={{
-              height: "280px", position: "relative",
-              backgroundImage: "url('https://images.unsplash.com/photo-1555244162-803834f70033?w=700&q=80&fit=crop')",
-              backgroundSize: "cover", backgroundPosition: "center",
-            }}>
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, #1c1228 0%, transparent 60%)" }} />
-              <div style={{ position: "absolute", top: "16px", left: "16px", background: "rgba(139,26,26,0.9)", borderRadius: "50px", padding: "6px 14px" }}>
-                <span className="font-cinzel" style={{ color: "#faf6f0", fontSize: "10px", letterSpacing: "1.5px", fontWeight: "700" }}>CATERING</span>
+              {/* Body */}
+              <div style={{ padding: "24px 24px 28px" }}>
+                <div style={{ fontSize: 28, marginBottom: 10 }}>{s.icon}</div>
+                <h3 className="pf" style={{ color: "#faf6f0", fontSize: "clamp(20px,4vw,24px)", fontWeight: 700, marginBottom: 8 }}>{s.title}</h3>
+                <p className="pf" style={{ color: "rgba(232,201,138,.7)", fontSize: 14, fontStyle: "italic", marginBottom: 12 }}>{s.tagline}</p>
+                <p style={{ color: "rgba(250,246,240,.55)", fontSize: 13, lineHeight: 1.8, marginBottom: 20 }}>{s.desc}</p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 7, marginBottom: 24 }}>
+                  {s.tags.map(t => <span key={t} className="tag" style={{ fontSize: 10 }}>{t}</span>)}
+                </div>
+                <a href={s.href} className="cin" style={{
+                  display: "inline-block",
+                  background: "linear-gradient(135deg,#c8a96e,#e8c98a)", color: "#0f0a1a",
+                  padding: "11px 26px", borderRadius: 4, fontWeight: 700, fontSize: 10, letterSpacing: "2px",
+                }}>{s.cta} →</a>
               </div>
             </div>
-            <div style={{ padding: "32px" }}>
-              <div style={{ fontSize: "32px", marginBottom: "12px" }}>🎉</div>
-              <h3 className="font-playfair" style={{ color: "#faf6f0", fontSize: "26px", fontWeight: "700", marginBottom: "12px" }}>
-                Professional Catering
-              </h3>
-              <p style={{ color: "rgba(250,246,240,0.6)", fontSize: "14px", lineHeight: "1.8", marginBottom: "24px" }}>
-                We bring the imperial experience to your event. Weddings, birthdays, corporate functions — full-service setup, professional staff, customized menus. From 50 to 1,000+ guests.
-              </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "28px" }}>
-                {["Weddings", "Birthdays", "Corporate", "Small Chops", "Full Setup"].map(t => (
-                  <span key={t} className="tag" style={{ fontSize: "11px" }}>{t}</span>
-                ))}
-              </div>
-              <a href="#catering" className="font-cinzel" style={{
-                display: "inline-block",
-                background: "rgba(200,169,110,0.1)", border: "1px solid rgba(200,169,110,0.4)",
-                color: "#c8a96e", padding: "12px 28px", borderRadius: "4px",
-                textDecoration: "none", fontWeight: "700", fontSize: "10px", letterSpacing: "2px",
-              }}>
-                GET A QUOTE →
-              </a>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
-      <style>{`@media(max-width:768px){div[style*="grid-template-columns: 1fr 1fr"]{grid-template-columns:1fr!important;}}`}</style>
+      <style>{`
+        .srv-grid { display:grid; grid-template-columns:1fr; gap:20px; }
+        @media(min-width:768px){ .srv-grid { grid-template-columns:repeat(2,1fr); } }
+      `}</style>
     </section>
   );
 }

@@ -3,162 +3,160 @@ import { Phone, MapPin, Clock, Star } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section id="contact" style={{ background: "var(--cream)", padding: "100px 24px" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: "64px" }}>
-          <p className="eyebrow" style={{ marginBottom: "14px" }}>✦ REACH US ✦</p>
-          <h2 className="font-playfair" style={{ fontSize: "clamp(30px, 4vw, 52px)", fontWeight: "800", color: "#0f0a1a", lineHeight: "1.12" }}>
+    <section id="contact" style={{ background: "var(--cream)", padding: "80px 20px" }}>
+      <div className="wrap">
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: 52 }}>
+          <p className="eyebrow" style={{ marginBottom: 14 }}>✦ REACH US ✦</p>
+          <h2 className="pf" style={{ fontSize: "clamp(28px,6vw,50px)", fontWeight: 900, color: "#0f0a1a", lineHeight: 1.1 }}>
             Visit Imperial Kitchen
           </h2>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "start" }}>
-
-          {/* Left: info + image */}
+        <div className="contact-grid">
+          {/* Left col */}
           <div>
-            {/* Hero contact image */}
+            {/* Big photo */}
             <div style={{
-              height: "240px", borderRadius: "12px", overflow: "hidden",
+              height: "clamp(180px,40vw,240px)", borderRadius: 12, overflow: "hidden", marginBottom: 24,
               backgroundImage: "url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&q=80&fit=crop')",
               backgroundSize: "cover", backgroundPosition: "center",
-              marginBottom: "32px",
-              boxShadow: "0 12px 48px rgba(15,10,26,0.15)",
+              boxShadow: "0 12px 40px rgba(15,10,26,.14)",
             }} />
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            {/* Info cards */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {/* Call */}
               <a href="tel:08074101786" style={{
-                display: "flex", alignItems: "center", gap: "18px",
-                background: "#0f0a1a", borderRadius: "10px", padding: "20px 24px",
-                textDecoration: "none", transition: "transform 0.2s",
+                display: "flex", alignItems: "center", gap: 16,
+                background: "#0f0a1a", borderRadius: 10, padding: "18px 22px",
+                textDecoration: "none", transition: "transform .2s",
               }}
                 onMouseEnter={e => e.currentTarget.style.transform = "translateX(4px)"}
                 onMouseLeave={e => e.currentTarget.style.transform = "translateX(0)"}
               >
-                <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "linear-gradient(135deg, #c8a96e, #e8c98a)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <Phone size={20} color="#0f0a1a" />
+                <div style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg,#c8a96e,#e8c98a)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <Phone size={18} color="#0f0a1a" />
                 </div>
                 <div>
-                  <div className="font-cinzel" style={{ color: "rgba(200,169,110,0.7)", fontSize: "9px", letterSpacing: "2.5px", marginBottom: "4px" }}>CALL US NOW</div>
-                  <div className="font-playfair" style={{ color: "#faf6f0", fontSize: "22px", fontWeight: "700" }}>0807 410 1786</div>
-                  <div style={{ color: "rgba(250,246,240,0.45)", fontSize: "12px" }}>For reservations, orders & catering</div>
+                  <div className="cin" style={{ color: "rgba(200,169,110,.65)", fontSize: 8, letterSpacing: "2.5px", marginBottom: 3 }}>CALL US NOW</div>
+                  <div className="pf" style={{ color: "#faf6f0", fontSize: "clamp(17px,4vw,21px)", fontWeight: 700 }}>0807 410 1786</div>
+                  <div style={{ color: "rgba(250,246,240,.4)", fontSize: 11 }}>Reservations, orders & catering</div>
                 </div>
               </a>
 
-              <div style={{ display: "flex", alignItems: "flex-start", gap: "18px", background: "white", borderRadius: "10px", padding: "20px 24px", border: "1px solid rgba(90,74,56,0.1)" }}>
-                <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "#faf6f0", border: "1px solid rgba(200,169,110,0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <MapPin size={20} color="#c8a96e" />
+              {/* Address */}
+              <div style={{ display: "flex", alignItems: "flex-start", gap: 16, background: "white", borderRadius: 10, padding: "16px 20px", border: "1px solid rgba(90,74,56,.1)" }}>
+                <div style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--gold-pale)", border: "1px solid rgba(200,169,110,.25)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <MapPin size={16} color="#c8a96e" />
                 </div>
                 <div>
-                  <div className="font-cinzel" style={{ color: "#8a7a65", fontSize: "9px", letterSpacing: "2.5px", marginBottom: "4px" }}>OUR LOCATION</div>
-                  <div style={{ color: "#0f0a1a", fontSize: "16px", fontWeight: "600" }}>30 Suraogumakin Street</div>
-                  <div style={{ color: "#8a7a65", fontSize: "13px" }}>Papa Ashafa, Lagos 102212</div>
+                  <div className="cin" style={{ color: "#8a7a65", fontSize: 8, letterSpacing: "2px", marginBottom: 3 }}>LOCATION</div>
+                  <div style={{ color: "#0f0a1a", fontSize: 14, fontWeight: 600 }}>30 Suraogumakin Street</div>
+                  <div style={{ color: "#8a7a65", fontSize: 12 }}>Papa Ashafa, Lagos 102212</div>
                 </div>
               </div>
 
-              <div style={{ display: "flex", alignItems: "center", gap: "18px", background: "white", borderRadius: "10px", padding: "20px 24px", border: "1px solid rgba(90,74,56,0.1)" }}>
-                <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "#faf6f0", border: "1px solid rgba(200,169,110,0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <Clock size={20} color="#c8a96e" />
+              {/* Hours */}
+              <div style={{ display: "flex", alignItems: "center", gap: 16, background: "white", borderRadius: 10, padding: "16px 20px", border: "1px solid rgba(90,74,56,.1)" }}>
+                <div style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--gold-pale)", border: "1px solid rgba(200,169,110,.25)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <Clock size={16} color="#c8a96e" />
                 </div>
                 <div>
-                  <div className="font-cinzel" style={{ color: "#8a7a65", fontSize: "9px", letterSpacing: "2.5px", marginBottom: "4px" }}>HOURS</div>
-                  <div style={{ color: "#0f0a1a", fontSize: "16px", fontWeight: "600" }}>Monday – Sunday</div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "3px" }}>
-                    <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#22c55e", animation: "blink 2s infinite" }} />
-                    <span style={{ color: "#22c55e", fontSize: "13px", fontWeight: "600" }}>Open · Closes 8:30 PM</span>
+                  <div className="cin" style={{ color: "#8a7a65", fontSize: 8, letterSpacing: "2px", marginBottom: 3 }}>HOURS</div>
+                  <div style={{ color: "#0f0a1a", fontSize: 14, fontWeight: 600 }}>Monday – Sunday</div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 2 }}>
+                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", animation: "blink 2s infinite", flexShrink: 0 }} />
+                    <span style={{ color: "#22c55e", fontSize: 12, fontWeight: 600 }}>Open · Closes 8:30 PM</span>
                   </div>
                 </div>
               </div>
 
-              {/* Rating card */}
-              <div style={{ display: "flex", alignItems: "center", gap: "18px", background: "linear-gradient(135deg, #0f0a1a, #1c1228)", borderRadius: "10px", padding: "20px 24px", border: "1px solid rgba(200,169,110,0.2)" }}>
-                <div style={{ textAlign: "center" }}>
-                  <div className="font-playfair" style={{ color: "#c8a96e", fontSize: "30px", fontWeight: "800", lineHeight: "1" }}>5.0</div>
-                  <div style={{ display: "flex", gap: "2px", marginTop: "4px" }}>
-                    {[1,2,3,4,5].map(i => <Star key={i} size={10} fill="#c8a96e" color="#c8a96e" />)}
+              {/* Rating */}
+              <div style={{ display: "flex", alignItems: "center", gap: 16, background: "linear-gradient(135deg,#0f0a1a,#1a1128)", borderRadius: 10, padding: "16px 20px", border: "1px solid rgba(200,169,110,.18)" }}>
+                <div style={{ textAlign: "center", flexShrink: 0 }}>
+                  <div className="pf" style={{ color: "#c8a96e", fontSize: 26, fontWeight: 800, lineHeight: 1 }}>5.0</div>
+                  <div style={{ display: "flex", gap: 2, marginTop: 3 }}>
+                    {[1,2,3,4,5].map(i => <Star key={i} size={9} fill="#c8a96e" color="#c8a96e" />)}
                   </div>
                 </div>
                 <div>
-                  <div className="font-cinzel" style={{ color: "#c8a96e", fontSize: "10px", letterSpacing: "2px", marginBottom: "4px" }}>PERFECT RATING</div>
-                  <div style={{ color: "rgba(250,246,240,0.6)", fontSize: "13px", lineHeight: "1.5" }}>100% satisfaction — trusted by Lagos families &amp; businesses</div>
+                  <div className="cin" style={{ color: "#c8a96e", fontSize: 8, letterSpacing: "2px", marginBottom: 3 }}>PERFECT RATING</div>
+                  <div style={{ color: "rgba(250,246,240,.55)", fontSize: 12, lineHeight: 1.5 }}>100% satisfaction — trusted by Lagos families & businesses</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right: form */}
-          <div style={{ background: "white", borderRadius: "14px", padding: "40px", border: "1px solid rgba(90,74,56,0.1)", boxShadow: "0 8px 48px rgba(15,10,26,0.07)" }}>
-            <h3 className="font-playfair" style={{ color: "#0f0a1a", fontSize: "24px", fontWeight: "700", marginBottom: "6px" }}>
-              Send Us a Message
-            </h3>
-            <p style={{ color: "#8a7a65", fontSize: "13px", marginBottom: "32px" }}>
-              Catering quotes, reservations, or any inquiry — we respond quickly.
-            </p>
+          {/* Right col — form */}
+          <div style={{ background: "white", borderRadius: 14, padding: "clamp(24px,5vw,36px)", border: "1px solid rgba(90,74,56,.1)", boxShadow: "0 8px 40px rgba(15,10,26,.07)" }}>
+            <h3 className="pf" style={{ color: "#0f0a1a", fontSize: "clamp(20px,4vw,24px)", fontWeight: 700, marginBottom: 6 }}>Send Us a Message</h3>
+            <p style={{ color: "#8a7a65", fontSize: 13, marginBottom: 28 }}>Catering quotes, reservations, or any inquiry — we respond quickly.</p>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               {[
-                { label: "FULL NAME", type: "text", placeholder: "Your full name" },
-                { label: "PHONE NUMBER", type: "tel", placeholder: "Your phone number" },
-                { label: "EMAIL ADDRESS", type: "email", placeholder: "Your email address" },
+                {l:"FULL NAME", t:"text", p:"Your full name"},
+                {l:"PHONE NUMBER", t:"tel", p:"Your phone number"},
+                {l:"EMAIL ADDRESS", t:"email", p:"Your email address"},
               ].map(f => (
-                <div key={f.label}>
-                  <label className="font-cinzel" style={{ display: "block", color: "#8a7a65", fontSize: "9px", letterSpacing: "2px", marginBottom: "7px" }}>{f.label}</label>
-                  <input type={f.type} placeholder={f.placeholder} style={{
-                    width: "100%", padding: "12px 16px",
-                    border: "1px solid rgba(90,74,56,0.2)", borderRadius: "7px",
-                    fontSize: "14px", color: "#0f0a1a", outline: "none", background: "#faf6f0",
-                    transition: "border-color 0.2s",
+                <div key={f.l}>
+                  <label className="cin" style={{ display: "block", color: "#8a7a65", fontSize: 8, letterSpacing: "2px", marginBottom: 6 }}>{f.l}</label>
+                  <input type={f.t} placeholder={f.p} style={{
+                    width: "100%", padding: "11px 14px", border: "1px solid rgba(90,74,56,.18)",
+                    borderRadius: 7, fontSize: 14, color: "#0f0a1a", outline: "none", background: "#faf6f0",
+                    transition: "border-color .2s",
                   }}
                     onFocus={e => e.target.style.borderColor = "#c8a96e"}
-                    onBlur={e => e.target.style.borderColor = "rgba(90,74,56,0.2)"}
+                    onBlur={e => e.target.style.borderColor = "rgba(90,74,56,.18)"}
                   />
                 </div>
               ))}
 
               <div>
-                <label className="font-cinzel" style={{ display: "block", color: "#8a7a65", fontSize: "9px", letterSpacing: "2px", marginBottom: "7px" }}>INQUIRY TYPE</label>
-                <select style={{ width: "100%", padding: "12px 16px", border: "1px solid rgba(90,74,56,0.2)", borderRadius: "7px", fontSize: "14px", color: "#0f0a1a", outline: "none", background: "#faf6f0", cursor: "pointer" }}>
+                <label className="cin" style={{ display: "block", color: "#8a7a65", fontSize: 8, letterSpacing: "2px", marginBottom: 6 }}>INQUIRY TYPE</label>
+                <select style={{ width: "100%", padding: "11px 14px", border: "1px solid rgba(90,74,56,.18)", borderRadius: 7, fontSize: 14, color: "#0f0a1a", outline: "none", background: "#faf6f0", cursor: "pointer" }}>
                   <option>Restaurant Reservation</option>
                   <option>Wedding Catering</option>
-                  <option>Birthday Party Catering</option>
+                  <option>Birthday Party</option>
                   <option>Corporate Catering</option>
-                  <option>Small Chops Order</option>
+                  <option>Small Chops</option>
                   <option>General Inquiry</option>
                 </select>
               </div>
 
               <div>
-                <label className="font-cinzel" style={{ display: "block", color: "#8a7a65", fontSize: "9px", letterSpacing: "2px", marginBottom: "7px" }}>MESSAGE</label>
-                <textarea rows={4} placeholder="Tell us about your event, number of guests, date, and any preferences..." style={{
-                  width: "100%", padding: "12px 16px",
-                  border: "1px solid rgba(90,74,56,0.2)", borderRadius: "7px",
-                  fontSize: "14px", color: "#0f0a1a", outline: "none", background: "#faf6f0",
-                  resize: "vertical", fontFamily: "Inter, sans-serif",
-                  transition: "border-color 0.2s",
+                <label className="cin" style={{ display: "block", color: "#8a7a65", fontSize: 8, letterSpacing: "2px", marginBottom: 6 }}>MESSAGE</label>
+                <textarea rows={4} placeholder="Event date, number of guests, special requests..." style={{
+                  width: "100%", padding: "11px 14px", border: "1px solid rgba(90,74,56,.18)",
+                  borderRadius: 7, fontSize: 14, color: "#0f0a1a", outline: "none", background: "#faf6f0",
+                  resize: "vertical", fontFamily: "Inter, sans-serif", transition: "border-color .2s",
                 }}
                   onFocus={e => e.target.style.borderColor = "#c8a96e"}
-                  onBlur={e => e.target.style.borderColor = "rgba(90,74,56,0.2)"}
+                  onBlur={e => e.target.style.borderColor = "rgba(90,74,56,.18)"}
                 />
               </div>
 
-              <button className="font-cinzel" style={{
-                width: "100%", background: "linear-gradient(135deg, #0f0a1a, #1c1228)",
-                color: "#c8a96e", padding: "15px", border: "none",
-                borderRadius: "7px", fontWeight: "700", fontSize: "11px",
-                letterSpacing: "2.5px", cursor: "pointer", transition: "opacity 0.2s",
+              <button className="cin" style={{
+                width: "100%", background: "linear-gradient(135deg,#0f0a1a,#1a1128)", color: "#c8a96e",
+                padding: 14, border: "none", borderRadius: 7, fontWeight: 700, fontSize: 10, letterSpacing: "2.5px",
+                transition: "opacity .2s",
               }}
-                onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
+                onMouseEnter={e => e.currentTarget.style.opacity = ".85"}
                 onMouseLeave={e => e.currentTarget.style.opacity = "1"}
-              >
-                SEND MESSAGE 👑
-              </button>
+              >SEND MESSAGE 👑</button>
+
+              <p style={{ color: "#8a7a65", fontSize: 12, textAlign: "center" }}>
+                Or call: <a href="tel:08074101786" style={{ color: "#8b4513", fontWeight: 700 }}>0807 410 1786</a>
+              </p>
             </div>
           </div>
         </div>
       </div>
 
       <style>{`
-        @media(max-width:768px){div[style*="grid-template-columns: 1fr 1fr"]{grid-template-columns:1fr!important;}}
-        @keyframes blink{0%,100%{opacity:1}50%{opacity:0.4}}
+        .contact-grid { display:grid; grid-template-columns:1fr; gap:24px; }
+        @media(min-width:768px){ .contact-grid { grid-template-columns:1fr 1fr; gap:40px; } }
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
       `}</style>
     </section>
   );
