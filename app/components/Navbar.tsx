@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 
-const navLinks = [
+const links = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Menu", href: "#menu" },
@@ -14,151 +14,97 @@ const navLinks = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const fn = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", fn);
+    return () => window.removeEventListener("scroll", fn);
   }, []);
 
   return (
-    <nav
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1000,
-        transition: "all 0.4s ease",
-        background: scrolled
-          ? "rgba(26, 10, 46, 0.97)"
-          : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(201, 168, 76, 0.2)" : "none",
-        boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.3)" : "none",
-      }}
-    >
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "72px" }}>
+    <nav style={{
+      position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
+      background: scrolled ? "rgba(15,10,26,0.96)" : "transparent",
+      backdropFilter: scrolled ? "blur(16px)" : "none",
+      borderBottom: scrolled ? "1px solid rgba(200,169,110,0.15)" : "none",
+      transition: "all 0.35s ease",
+    }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "70px" }}>
+
           {/* Logo */}
-          <a href="#home" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
-            <div style={{
-              width: "42px", height: "42px", borderRadius: "50%",
-              background: "linear-gradient(135deg, #c9a84c, #f0d080)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: "20px", flexShrink: 0,
-              boxShadow: "0 0 15px rgba(201,168,76,0.4)"
-            }}>
+          <a href="#home" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+            <div style={{ width: "38px", height: "38px", borderRadius: "50%", background: "linear-gradient(135deg, #c8a96e, #e8c98a)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "17px", boxShadow: "0 0 16px rgba(200,169,110,0.35)" }}>
               👑
             </div>
             <div>
-              <div className="font-cinzel" style={{ color: "#c9a84c", fontSize: "13px", fontWeight: "700", letterSpacing: "2px", lineHeight: "1.1" }}>
-                IMPERIAL
-              </div>
-              <div className="font-cormorant" style={{ color: "#fdf8f0", fontSize: "11px", letterSpacing: "1.5px", lineHeight: "1" }}>
-                KITCHEN & RESTAURANT
-              </div>
+              <div className="font-cinzel" style={{ color: "#c8a96e", fontSize: "12px", fontWeight: "700", letterSpacing: "2.5px", lineHeight: "1.1" }}>IMPERIAL</div>
+              <div className="font-playfair" style={{ color: "rgba(250,246,240,0.5)", fontSize: "10px", letterSpacing: "1px", fontStyle: "italic", lineHeight: "1" }}>Kitchen & Restaurant</div>
             </div>
           </a>
 
-          {/* Desktop Links */}
-          <div style={{ display: "flex", alignItems: "center", gap: "4px" }} className="hidden-mobile">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="font-cinzel"
-                style={{
-                  color: "#e2d5f5",
-                  fontSize: "11px",
-                  fontWeight: "500",
-                  letterSpacing: "1.5px",
-                  padding: "8px 14px",
-                  borderRadius: "4px",
-                  textDecoration: "none",
-                  transition: "all 0.2s",
-                }}
-                onMouseEnter={(e) => {
-                  (e.target as HTMLAnchorElement).style.color = "#c9a84c";
-                  (e.target as HTMLAnchorElement).style.background = "rgba(201,168,76,0.08)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.target as HTMLAnchorElement).style.color = "#e2d5f5";
-                  (e.target as HTMLAnchorElement).style.background = "transparent";
-                }}
+          {/* Desktop nav */}
+          <div style={{ display: "flex", alignItems: "center", gap: "2px" }} className="desk-nav">
+            {links.map(l => (
+              <a key={l.label} href={l.href} className="font-cinzel" style={{
+                color: "rgba(250,246,240,0.7)", fontSize: "10px", letterSpacing: "1.5px",
+                padding: "8px 14px", borderRadius: "4px", textDecoration: "none", transition: "color 0.2s",
+              }}
+                onMouseEnter={e => (e.target as HTMLAnchorElement).style.color = "#c8a96e"}
+                onMouseLeave={e => (e.target as HTMLAnchorElement).style.color = "rgba(250,246,240,0.7)"}
               >
-                {link.label}
+                {l.label.toUpperCase()}
               </a>
             ))}
-            <a
-              href="tel:08074101786"
-              style={{
-                display: "flex", alignItems: "center", gap: "6px",
-                background: "linear-gradient(135deg, #c9a84c, #f0d080)",
-                color: "#1a0a2e", padding: "9px 18px", borderRadius: "6px",
-                textDecoration: "none", fontWeight: "700",
-                fontSize: "12px", letterSpacing: "0.5px",
-                marginLeft: "8px", transition: "opacity 0.2s",
-              }}
-              onMouseEnter={(e) => { (e.currentTarget).style.opacity = "0.9"; }}
-              onMouseLeave={(e) => { (e.currentTarget).style.opacity = "1"; }}
+            <a href="tel:08074101786" style={{
+              display: "flex", alignItems: "center", gap: "6px",
+              background: "linear-gradient(135deg, #c8a96e, #e8c98a)",
+              color: "#0f0a1a", padding: "9px 18px", borderRadius: "4px",
+              textDecoration: "none", fontWeight: "700", fontSize: "11px",
+              marginLeft: "8px", letterSpacing: "0.5px",
+              transition: "opacity 0.2s",
+            }}
+              onMouseEnter={e => e.currentTarget.style.opacity = "0.88"}
+              onMouseLeave={e => e.currentTarget.style.opacity = "1"}
             >
-              <Phone size={13} />
+              <Phone size={12} />
               <span className="font-cinzel">Call Now</span>
             </a>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setOpen(!open)}
-            style={{ background: "none", border: "none", color: "#c9a84c", cursor: "pointer", padding: "8px" }}
-            className="show-mobile"
-          >
-            {open ? <X size={24} /> : <Menu size={24} />}
+          {/* Mobile toggle */}
+          <button onClick={() => setOpen(!open)} style={{ background: "none", border: "none", color: "#c8a96e", cursor: "pointer", padding: "8px" }} className="mob-btn">
+            {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       {open && (
-        <div style={{
-          background: "rgba(26, 10, 46, 0.98)",
-          borderTop: "1px solid rgba(201,168,76,0.2)",
-          padding: "16px 24px 24px",
-        }}>
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="font-cinzel"
-              style={{
-                display: "block", color: "#e2d5f5", textDecoration: "none",
-                padding: "12px 0", fontSize: "12px", letterSpacing: "2px",
-                borderBottom: "1px solid rgba(201,168,76,0.1)",
-              }}
-            >
-              {link.label}
+        <div style={{ background: "rgba(15,10,26,0.98)", borderTop: "1px solid rgba(200,169,110,0.15)", padding: "16px 24px 28px" }}>
+          {links.map(l => (
+            <a key={l.label} href={l.href} onClick={() => setOpen(false)} className="font-cinzel" style={{
+              display: "block", color: "rgba(250,246,240,0.7)", fontSize: "11px",
+              letterSpacing: "2px", padding: "12px 0", borderBottom: "1px solid rgba(200,169,110,0.08)",
+              textDecoration: "none",
+            }}>
+              {l.label.toUpperCase()}
             </a>
           ))}
-          <a
-            href="tel:08074101786"
-            style={{
-              display: "flex", alignItems: "center", gap: "8px",
-              marginTop: "16px", background: "linear-gradient(135deg, #c9a84c, #f0d080)",
-              color: "#1a0a2e", padding: "12px 20px", borderRadius: "6px",
-              textDecoration: "none", fontWeight: "700", fontSize: "13px", justifyContent: "center",
-            }}
-          >
-            <Phone size={15} />
-            <span className="font-cinzel">0807 410 1786</span>
+          <a href="tel:08074101786" style={{
+            display: "flex", justifyContent: "center", alignItems: "center", gap: "8px",
+            marginTop: "18px", background: "linear-gradient(135deg, #c8a96e, #e8c98a)",
+            color: "#0f0a1a", padding: "13px", borderRadius: "4px",
+            textDecoration: "none", fontWeight: "700",
+          }}>
+            <Phone size={14} />
+            <span className="font-cinzel" style={{ fontSize: "12px", letterSpacing: "1px" }}>0807 410 1786</span>
           </a>
         </div>
       )}
 
       <style>{`
-        @media (min-width: 768px) { .hidden-mobile { display: flex !important; } .show-mobile { display: none !important; } }
-        @media (max-width: 767px) { .hidden-mobile { display: none !important; } .show-mobile { display: block !important; } }
+        @media(min-width:768px){.desk-nav{display:flex!important;}.mob-btn{display:none!important;}}
+        @media(max-width:767px){.desk-nav{display:none!important;}.mob-btn{display:block!important;}}
       `}</style>
     </nav>
   );

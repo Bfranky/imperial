@@ -1,144 +1,72 @@
 "use client";
+
 const benefits = [
-  {
-    emoji: "⭐",
-    title: "Perfect 5.0★ Rating",
-    desc: "100% customer satisfaction. Our perfect rating speaks for itself — years of delivering exceptional food and outstanding service to families and businesses across Lagos.",
-    highlight: true,
-  },
-  {
-    emoji: "👑",
-    title: "Imperial Quality Standards",
-    desc: "Every dish prepared to imperial standards. Fresh ingredients, expert chefs, authentic recipes, and meticulous attention to detail. Royally good food, every single time.",
-    highlight: false,
-  },
-  {
-    emoji: "🎉",
-    title: "Restaurant & Catering Excellence",
-    desc: "Enjoy our delicious meals at our restaurant OR let us cater your special event. Two exceptional ways to experience our imperial cuisine and hospitality.",
-    highlight: false,
-  },
-  {
-    emoji: "🏆",
-    title: "Years of Trusted Service",
-    desc: "Established and trusted in Lagos for years. We've served countless satisfied customers and catered memorable events — a proven track record of excellence.",
-    highlight: false,
-  },
-  {
-    emoji: "🌿",
-    title: "Fresh Daily Preparation",
-    desc: "We never compromise on freshness. All meals prepared daily using quality ingredients, sourced fresh. Taste the unmistakable difference that freshness makes.",
-    highlight: false,
-  },
-  {
-    emoji: "⏰",
-    title: "Convenient & Reliable",
-    desc: "Open until 8:30 PM daily for your dinner convenience. Located at Papa Ashafa with easy access, and reliable catering delivery you can count on.",
-    highlight: false,
-  },
+  { emoji: "⭐", title: "Perfect 5.0★ Rating", desc: "100% customer satisfaction — our track record speaks for itself. Years of delivering exceptional meals across Lagos." },
+  { emoji: "🌿", title: "Fresh Every Day", desc: "No shortcuts. Ingredients sourced fresh every morning. You can taste the difference in every single bite." },
+  { emoji: "👨‍🍳", title: "Expert Chefs", desc: "Our kitchen team brings deep knowledge of Nigerian cuisine and continental cooking — authentic, skilled, passionate." },
+  { emoji: "⏰", title: "Open Until 8:30 PM", desc: "Late enough for after-work dinners. Reliable hours, every single day. We're here when you need us." },
+  { emoji: "🎉", title: "Full-Service Catering", desc: "We don't just deliver food — we set up, serve, and ensure your event runs smoothly from start to finish." },
+  { emoji: "💛", title: "Trusted in Lagos", desc: "An established name in Papa Ashafa. Families, corporates, event planners — they all come back to Imperial." },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section style={{
-      padding: "96px 24px",
-      background: "linear-gradient(180deg, #1a0a2e 0%, #2d1b4e 50%, #1a0a2e 100%)",
-      position: "relative",
-      overflow: "hidden",
-    }}>
-      {/* Background grid */}
+    <section style={{ background: "#0f0a1a", padding: "100px 24px", position: "relative", overflow: "hidden" }}>
+      {/* Background image with heavy overlay */}
       <div style={{
-        position: "absolute", inset: 0, opacity: 0.05,
-        backgroundImage: "linear-gradient(rgba(201,168,76,1) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,1) 1px, transparent 1px)",
-        backgroundSize: "50px 50px", pointerEvents: "none",
+        position: "absolute", inset: 0,
+        backgroundImage: "url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=60&fit=crop')",
+        backgroundSize: "cover", backgroundPosition: "center",
+        opacity: 0.08,
       }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg, rgba(15,10,26,0.97) 0%, rgba(28,18,40,0.94) 100%)" }} />
 
-      <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center" }}>
 
-        {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "72px" }}>
-          <div className="font-cinzel" style={{ color: "#c9a84c", fontSize: "10px", letterSpacing: "5px", marginBottom: "16px" }}>
-            ✦ WHY CHOOSE US ✦
-          </div>
-          <h2 className="font-cinzel" style={{ fontSize: "clamp(28px, 4vw, 52px)", fontWeight: "800", color: "#fdf8f0", lineHeight: "1.15", marginBottom: "20px" }}>
-            The Imperial Difference
-          </h2>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px" }}>
-            <div style={{ height: "1px", width: "80px", background: "linear-gradient(90deg, transparent, #c9a84c)" }} />
-            <span style={{ color: "#c9a84c", fontSize: "18px" }}>✦</span>
-            <div style={{ height: "1px", width: "80px", background: "linear-gradient(90deg, #c9a84c, transparent)" }} />
-          </div>
-        </div>
-
-        {/* Grid */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: "24px",
-        }}>
-          {benefits.map((b) => (
-            <div
-              key={b.title}
-              className="imperial-card"
-              style={{
-                background: b.highlight
-                  ? "linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05))"
-                  : "rgba(255,255,255,0.03)",
-                border: `1px solid ${b.highlight ? "rgba(201,168,76,0.4)" : "rgba(255,255,255,0.07)"}`,
-                borderRadius: "8px",
-                padding: "36px 28px",
-                position: "relative",
-                overflow: "hidden",
-              }}
-            >
-              {/* Corner accents for highlighted card */}
-              {b.highlight && (
-                <>
-                  <div style={{ position: "absolute", top: 0, left: 0, width: "24px", height: "24px", borderTop: "2px solid rgba(201,168,76,0.6)", borderLeft: "2px solid rgba(201,168,76,0.6)" }} />
-                  <div style={{ position: "absolute", bottom: 0, right: 0, width: "24px", height: "24px", borderBottom: "2px solid rgba(201,168,76,0.6)", borderRight: "2px solid rgba(201,168,76,0.6)" }} />
-                </>
-              )}
-
-              <div style={{ fontSize: "36px", marginBottom: "16px" }}>{b.emoji}</div>
-              <h3 className="font-cinzel" style={{
-                color: b.highlight ? "#c9a84c" : "#fdf8f0",
-                fontSize: "14px", fontWeight: "700",
-                letterSpacing: "0.5px", marginBottom: "12px",
-              }}>
-                {b.title}
-              </h3>
-              <p style={{
-                color: "rgba(253,248,240,0.65)",
-                fontSize: "14px",
-                lineHeight: "1.8",
-              }}>
-                {b.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div style={{ textAlign: "center", marginTop: "64px" }}>
-          <p className="font-cormorant" style={{ color: "rgba(240,208,128,0.8)", fontSize: "22px", fontStyle: "italic", marginBottom: "24px" }}>
-            &ldquo;Imperial quality at prices that welcome everyone&rdquo;
-          </p>
-          <a
-            href="#contact"
-            className="font-cinzel"
-            style={{
+          {/* Left: text */}
+          <div>
+            <p className="eyebrow" style={{ marginBottom: "16px" }}>✦ WHY IMPERIAL ✦</p>
+            <h2 className="font-playfair" style={{ fontSize: "clamp(30px, 4vw, 52px)", fontWeight: "800", color: "#faf6f0", lineHeight: "1.12", marginBottom: "24px" }}>
+              The Imperial<br />
+              <em className="gold-text" style={{ fontStyle: "italic" }}>Difference</em>
+            </h2>
+            <p style={{ color: "rgba(250,246,240,0.6)", fontSize: "15px", lineHeight: "1.85", marginBottom: "36px" }}>
+              It&apos;s not just the food — though that speaks for itself. It&apos;s the care, the freshness, the reliability, and the warmth that comes with every order. This is why Lagos families keep coming back.
+            </p>
+            <a href="tel:08074101786" className="font-cinzel" style={{
               display: "inline-flex", alignItems: "center", gap: "8px",
-              background: "linear-gradient(135deg, #c9a84c, #f0d080)",
-              color: "#1a0a2e", padding: "14px 40px",
-              borderRadius: "4px", textDecoration: "none",
-              fontWeight: "700", fontSize: "12px", letterSpacing: "2px",
-              boxShadow: "0 4px 20px rgba(201,168,76,0.3)",
-            }}
-          >
-            EXPERIENCE THE DIFFERENCE →
-          </a>
+              background: "linear-gradient(135deg, #c8a96e, #e8c98a)",
+              color: "#0f0a1a", padding: "14px 32px", borderRadius: "4px",
+              textDecoration: "none", fontWeight: "700", fontSize: "11px", letterSpacing: "2px",
+              boxShadow: "0 6px 24px rgba(200,169,110,0.3)",
+            }}>
+              📞 CALL 0807 410 1786
+            </a>
+          </div>
+
+          {/* Right: benefit cards */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
+            {benefits.map((b, i) => (
+              <div key={b.title} className="lift" style={{
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(200,169,110,0.12)",
+                borderRadius: "10px", padding: "22px 18px",
+                transition: "border-color 0.2s, background 0.2s",
+              }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(200,169,110,0.35)"; e.currentTarget.style.background = "rgba(200,169,110,0.06)"; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(200,169,110,0.12)"; e.currentTarget.style.background = "rgba(255,255,255,0.04)"; }}
+              >
+                <div style={{ fontSize: "24px", marginBottom: "10px" }}>{b.emoji}</div>
+                <h4 className="font-playfair" style={{ color: "#faf6f0", fontSize: "14px", fontWeight: "600", marginBottom: "7px", lineHeight: "1.3" }}>{b.title}</h4>
+                <p style={{ color: "rgba(250,246,240,0.5)", fontSize: "12px", lineHeight: "1.7" }}>{b.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+
+      <style>{`@media(max-width:768px){div[style*="grid-template-columns: 1fr 1fr"]{grid-template-columns:1fr!important;gap:40px!important;}}`}</style>
     </section>
   );
 }

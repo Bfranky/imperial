@@ -1,271 +1,144 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Phone, ChevronDown, Star } from "lucide-react";
-
-const badges = [
-  { icon: "🍽️", text: "Restaurant Dining" },
-  { icon: "📦", text: "Takeaway Available" },
-  { icon: "🎉", text: "Professional Catering" },
-  { icon: "👨‍🍳", text: "Fresh Daily Prep" },
-  { icon: "🕗", text: "Open Until 8:30 PM" },
-];
+import { Phone, ChevronDown, Star, MapPin, Clock } from "lucide-react";
 
 export default function Hero() {
   const [visible, setVisible] = useState(false);
+  useEffect(() => { const t = setTimeout(() => setVisible(true), 80); return () => clearTimeout(t); }, []);
 
-  useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 100);
-    return () => clearTimeout(t);
-  }, []);
+  const T = (delay = 0) => ({
+    opacity: visible ? 1 : 0,
+    transform: visible ? "translateY(0)" : "translateY(28px)",
+    transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`,
+  });
 
   return (
-    <section
-      id="home"
-      style={{
-        position: "relative",
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        overflow: "hidden",
-        background: "linear-gradient(160deg, #0d0520 0%, #1a0a2e 30%, #2d1b4e 60%, #1a0a2e 80%, #3d0020 100%)",
-      }}
-    >
-      {/* Decorative circles */}
+    <section id="home" style={{ position: "relative", height: "100vh", minHeight: "700px", overflow: "hidden" }}>
+      {/* Full-bleed hero photo */}
       <div style={{
-        position: "absolute", top: "-200px", right: "-200px",
-        width: "600px", height: "600px", borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(107,33,168,0.25) 0%, transparent 70%)",
-        pointerEvents: "none",
+        position: "absolute", inset: 0,
+        backgroundImage: `url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=85&fit=crop')`,
+        backgroundSize: "cover", backgroundPosition: "center 40%",
       }} />
+      {/* Multi-stop gradient overlay for drama */}
       <div style={{
-        position: "absolute", bottom: "-150px", left: "-150px",
-        width: "500px", height: "500px", borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(139,0,0,0.2) 0%, transparent 70%)",
-        pointerEvents: "none",
+        position: "absolute", inset: 0,
+        background: "linear-gradient(105deg, rgba(15,10,26,0.92) 0%, rgba(15,10,26,0.75) 40%, rgba(15,10,26,0.35) 70%, rgba(15,10,26,0.5) 100%)",
+      }} />
+      {/* Bottom fade for smooth section transition */}
+      <div style={{
+        position: "absolute", bottom: 0, left: 0, right: 0, height: "200px",
+        background: "linear-gradient(to top, #faf6f0 0%, transparent 100%)",
       }} />
 
-      {/* Grid pattern overlay */}
-      <div style={{
-        position: "absolute", inset: 0, opacity: 0.04,
-        backgroundImage: "linear-gradient(rgba(201,168,76,1) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,1) 1px, transparent 1px)",
-        backgroundSize: "60px 60px",
-        pointerEvents: "none",
-      }} />
+      {/* Content */}
+      <div style={{ position: "relative", zIndex: 2, height: "100%", display: "flex", alignItems: "center", padding: "0 clamp(20px, 6vw, 100px)" }}>
+        <div style={{ maxWidth: "660px" }}>
 
-      {/* Diagonal gold accent line */}
-      <div style={{
-        position: "absolute", top: 0, right: "30%", width: "1px", height: "100%",
-        background: "linear-gradient(to bottom, transparent, rgba(201,168,76,0.15), transparent)",
-        pointerEvents: "none",
-      }} />
-
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "120px 24px 80px", width: "100%", position: "relative", zIndex: 1 }}>
-        <div style={{ maxWidth: "780px" }}>
-
-          {/* Rating badge */}
-          <div
-            style={{
-              display: "inline-flex", alignItems: "center", gap: "8px",
-              background: "rgba(201,168,76,0.1)", border: "1px solid rgba(201,168,76,0.35)",
-              borderRadius: "50px", padding: "6px 16px", marginBottom: "28px",
-              opacity: visible ? 1 : 0,
-              transform: visible ? "translateY(0)" : "translateY(20px)",
-              transition: "all 0.6s ease",
-            }}
-          >
-            {[1,2,3,4,5].map(i => <Star key={i} size={12} fill="#c9a84c" color="#c9a84c" />)}
-            <span style={{ color: "#c9a84c", fontSize: "12px", fontWeight: "700", letterSpacing: "1px" }}>
-              5.0 PERFECT RATING
-            </span>
+          {/* Rating pill */}
+          <div style={{ ...T(0), display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(200,169,110,0.15)", border: "1px solid rgba(200,169,110,0.4)", borderRadius: "50px", padding: "7px 18px", marginBottom: "28px" }}>
+            {[1,2,3,4,5].map(i => <Star key={i} size={11} fill="#c8a96e" color="#c8a96e" />)}
+            <span style={{ color: "#c8a96e", fontSize: "12px", fontWeight: "600", letterSpacing: "1.5px" }}>PERFECT 5.0 RATING</span>
           </div>
 
-          {/* Main heading */}
-          <h1
-            className="font-cinzel"
-            style={{
-              fontSize: "clamp(36px, 7vw, 88px)",
-              fontWeight: "900",
-              lineHeight: "1.05",
-              letterSpacing: "-0.5px",
-              marginBottom: "8px",
-              opacity: visible ? 1 : 0,
-              transform: visible ? "translateY(0)" : "translateY(30px)",
-              transition: "all 0.7s ease 0.1s",
-            }}
-          >
-            <span style={{ color: "#fdf8f0", display: "block" }}>IMPERIAL</span>
-            <span className="gold-shimmer" style={{ display: "block" }}>KITCHEN</span>
+          {/* Headline */}
+          <h1 className="font-playfair" style={{ ...T(100), fontSize: "clamp(46px, 8vw, 96px)", fontWeight: "800", lineHeight: "1.02", color: "#faf6f0", marginBottom: "6px" }}>
+            Imperial
           </h1>
-          <div
-            className="font-cormorant"
-            style={{
-              color: "rgba(253,248,240,0.6)",
-              fontSize: "clamp(16px, 2.5vw, 26px)",
-              letterSpacing: "6px",
-              fontWeight: "300",
-              marginBottom: "28px",
-              opacity: visible ? 1 : 0,
-              transition: "all 0.7s ease 0.2s",
-            }}
-          >
-            & RESTAURANT
+          <h1 className="font-playfair gold-text" style={{ ...T(150), fontSize: "clamp(46px, 8vw, 96px)", fontWeight: "800", lineHeight: "1.02", marginBottom: "6px", fontStyle: "italic" }}>
+            Kitchen
+          </h1>
+          <p className="font-cinzel" style={{ ...T(200), color: "rgba(250,246,240,0.5)", fontSize: "clamp(11px, 1.5vw, 14px)", letterSpacing: "6px", marginBottom: "24px" }}>
+            & RESTAURANT · PAPA ASHAFA, LAGOS
+          </p>
+
+          {/* Divider */}
+          <div style={{ ...T(250), display: "flex", alignItems: "center", gap: "14px", marginBottom: "22px" }}>
+            <div style={{ height: "1px", width: "60px", background: "linear-gradient(90deg, transparent, rgba(200,169,110,0.6))" }} />
+            <span style={{ color: "rgba(200,169,110,0.7)", fontSize: "13px" }}>✦</span>
           </div>
 
           {/* Tagline */}
-          <div
-            style={{
-              marginBottom: "16px",
-              opacity: visible ? 1 : 0,
-              transition: "all 0.7s ease 0.3s",
-            }}
-          >
-            <div style={{
-              display: "flex", alignItems: "center", gap: "16px", marginBottom: "8px"
-            }}>
-              <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg, transparent, rgba(201,168,76,0.5))" }} />
-              <span style={{ color: "#c9a84c", fontSize: "10px", letterSpacing: "3px" }}>✦</span>
-            </div>
-            <p className="font-cormorant" style={{
-              color: "rgba(240,208,128,0.9)",
-              fontSize: "clamp(18px, 2.5vw, 26px)",
-              fontStyle: "italic",
-              fontWeight: "300",
-              letterSpacing: "1px",
-            }}>
-              &ldquo;Where Every Meal is Royally Prepared&rdquo;
-            </p>
-          </div>
-
-          {/* Sub description */}
-          <p style={{
-            color: "rgba(253,248,240,0.65)",
-            fontSize: "15px",
-            lineHeight: "1.8",
-            maxWidth: "540px",
-            marginBottom: "40px",
-            opacity: visible ? 1 : 0,
-            transition: "all 0.7s ease 0.4s",
-          }}>
-            Papa Ashafa&apos;s premier restaurant and catering service. Authentic Nigerian cuisine 
-            and continental favorites, prepared fresh daily by our expert chefs.
+          <p className="font-playfair" style={{ ...T(300), color: "rgba(232,201,138,0.9)", fontSize: "clamp(16px, 2vw, 22px)", fontStyle: "italic", fontWeight: "400", marginBottom: "32px" }}>
+            &ldquo;Where Every Meal is Royally Prepared&rdquo;
           </p>
 
-          {/* CTA Buttons */}
-          <div
-            style={{
-              display: "flex", flexWrap: "wrap", gap: "14px", marginBottom: "48px",
-              opacity: visible ? 1 : 0,
-              transition: "all 0.7s ease 0.5s",
-            }}
-          >
-            <a
-              href="#menu"
-              className="font-cinzel"
-              style={{
-                display: "inline-flex", alignItems: "center", gap: "8px",
-                background: "linear-gradient(135deg, #c9a84c, #f0d080, #c9a84c)",
-                backgroundSize: "200% auto",
-                color: "#1a0a2e", padding: "14px 32px",
-                borderRadius: "4px", textDecoration: "none",
-                fontWeight: "700", fontSize: "12px", letterSpacing: "2px",
-                transition: "background-position 0.4s, transform 0.2s",
-                boxShadow: "0 4px 20px rgba(201,168,76,0.35)",
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundPosition = "right center"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundPosition = "left center"; }}
-            >
-              VIEW MENU
-            </a>
-            <a
-              href="#catering"
-              className="font-cinzel"
-              style={{
-                display: "inline-flex", alignItems: "center", gap: "8px",
-                background: "transparent",
-                color: "#c9a84c", padding: "14px 32px",
-                borderRadius: "4px", textDecoration: "none",
-                fontWeight: "700", fontSize: "12px", letterSpacing: "2px",
-                border: "1px solid rgba(201,168,76,0.5)",
-                transition: "all 0.3s",
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(201,168,76,0.1)"; e.currentTarget.style.borderColor = "#c9a84c"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.5)"; }}
-            >
-              BOOK CATERING
-            </a>
-            <a
-              href="tel:08074101786"
-              className="font-cinzel"
-              style={{
-                display: "inline-flex", alignItems: "center", gap: "8px",
-                background: "rgba(255,255,255,0.05)",
-                color: "#fdf8f0", padding: "14px 24px",
-                borderRadius: "4px", textDecoration: "none",
-                fontWeight: "600", fontSize: "12px", letterSpacing: "1px",
-                border: "1px solid rgba(255,255,255,0.1)",
-                transition: "all 0.3s",
-              }}
-            >
-              <Phone size={14} />
-              0807 410 1786
-            </a>
-          </div>
-
-          {/* Service Badges */}
-          <div
-            style={{
-              display: "flex", flexWrap: "wrap", gap: "10px",
-              opacity: visible ? 1 : 0,
-              transition: "all 0.7s ease 0.6s",
-            }}
-          >
-            {badges.map((b) => (
-              <div
-                key={b.text}
-                style={{
-                  display: "flex", alignItems: "center", gap: "7px",
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(201,168,76,0.15)",
-                  borderRadius: "50px", padding: "6px 14px",
-                  color: "rgba(253,248,240,0.75)", fontSize: "12px",
-                }}
-              >
-                <span>{b.icon}</span>
-                <span>{b.text}</span>
+          {/* Quick info */}
+          <div style={{ ...T(350), display: "flex", flexWrap: "wrap", gap: "20px", marginBottom: "36px" }}>
+            {[
+              { icon: <MapPin size={13} />, text: "30 Suraogumakin Street" },
+              { icon: <Clock size={13} />, text: "Open Daily · Closes 8:30 PM" },
+              { icon: <Phone size={13} />, text: "0807 410 1786" },
+            ].map(item => (
+              <div key={item.text} style={{ display: "flex", alignItems: "center", gap: "7px", color: "rgba(250,246,240,0.65)", fontSize: "13px" }}>
+                <span style={{ color: "#c8a96e" }}>{item.icon}</span>
+                {item.text}
               </div>
             ))}
           </div>
+
+          {/* CTAs */}
+          <div style={{ ...T(420), display: "flex", flexWrap: "wrap", gap: "12px" }}>
+            <a href="#menu" className="font-cinzel" style={{
+              background: "linear-gradient(135deg, #c8a96e, #e8c98a)",
+              color: "#0f0a1a", padding: "14px 36px", borderRadius: "4px",
+              textDecoration: "none", fontWeight: "700", fontSize: "11px", letterSpacing: "2.5px",
+              boxShadow: "0 6px 24px rgba(200,169,110,0.35)",
+              transition: "transform 0.2s, box-shadow 0.2s",
+            }}
+              onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 10px 32px rgba(200,169,110,0.45)"; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 6px 24px rgba(200,169,110,0.35)"; }}
+            >
+              VIEW MENU
+            </a>
+            <a href="#catering" className="font-cinzel" style={{
+              background: "rgba(255,255,255,0.08)", color: "#faf6f0",
+              padding: "14px 36px", borderRadius: "4px", textDecoration: "none",
+              fontWeight: "600", fontSize: "11px", letterSpacing: "2.5px",
+              border: "1px solid rgba(255,255,255,0.2)", backdropFilter: "blur(8px)",
+              transition: "background 0.2s, border-color 0.2s",
+            }}
+              onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.15)"; e.currentTarget.style.borderColor = "rgba(200,169,110,0.5)"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.08)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; }}
+            >
+              BOOK CATERING
+            </a>
+          </div>
         </div>
 
-        {/* Location tag */}
-        <div style={{
-          position: "absolute", bottom: "40px", right: "24px",
-          textAlign: "right",
-          opacity: visible ? 1 : 0,
-          transition: "all 0.7s ease 0.7s",
-        }}>
-          <div style={{ color: "rgba(201,168,76,0.6)", fontSize: "10px", letterSpacing: "3px", marginBottom: "4px" }}>
-            LOCATION
-          </div>
-          <div className="font-cormorant" style={{ color: "#fdf8f0", fontSize: "18px", fontStyle: "italic" }}>
-            Papa Ashafa, Lagos
-          </div>
-          <div style={{ color: "rgba(253,248,240,0.4)", fontSize: "11px" }}>
-            30 Suraogumakin Street
-          </div>
+        {/* Floating stats card — right side */}
+        <div className="hidden-mobile float" style={{
+          position: "absolute", right: "clamp(20px, 5vw, 80px)", bottom: "clamp(80px, 12vh, 160px)",
+          background: "rgba(15,10,26,0.75)", backdropFilter: "blur(16px)",
+          border: "1px solid rgba(200,169,110,0.2)", borderRadius: "12px",
+          padding: "24px 28px", display: "flex", gap: "28px",
+          opacity: visible ? 1 : 0, transition: "opacity 0.8s ease 0.6s",
+        }}
+        >
+          {[["5.0★", "Rating"], ["Daily", "Fresh Food"], ["8:30PM", "Last Order"]].map(([v, l]) => (
+            <div key={l} style={{ textAlign: "center" }}>
+              <div className="font-playfair" style={{ color: "#c8a96e", fontSize: "20px", fontWeight: "700", lineHeight: "1" }}>{v}</div>
+              <div style={{ color: "rgba(250,246,240,0.5)", fontSize: "10px", letterSpacing: "1.5px", marginTop: "4px" }}>{l}</div>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll cue */}
       <div style={{
         position: "absolute", bottom: "32px", left: "50%", transform: "translateX(-50%)",
         display: "flex", flexDirection: "column", alignItems: "center", gap: "4px",
-        opacity: 0.5,
-        animation: "float 2s ease-in-out infinite",
+        zIndex: 2, opacity: visible ? 0.5 : 0, transition: "opacity 1s ease 1s",
+        animation: "float 2.5s ease-in-out infinite",
       }}>
-        <span style={{ color: "#c9a84c", fontSize: "9px", letterSpacing: "3px" }}>SCROLL</span>
-        <ChevronDown size={16} color="#c9a84c" />
+        <span className="font-cinzel" style={{ color: "#c8a96e", fontSize: "8px", letterSpacing: "4px" }}>DISCOVER</span>
+        <ChevronDown size={15} color="#c8a96e" />
       </div>
+
+      <style>{`
+        .hidden-mobile { display: flex !important; }
+        @media (max-width: 900px) { .hidden-mobile { display: none !important; } }
+      `}</style>
     </section>
   );
 }

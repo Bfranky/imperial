@@ -1,143 +1,113 @@
 "use client";
-const keyPoints = [
-  "Premier restaurant and catering service in Papa Ashafa, Lagos with a perfect 5.0-star rating",
-  "Every meal prepared with royal care — fresh ingredients, expert chefs, authentic recipes",
-  "From casual dining to grand celebrations, we make every meal an imperial experience",
-  "Open daily for breakfast, lunch, and dinner — convenient service until 8:30 PM",
-  "Full-service catering for weddings, birthdays, corporate events, and all special occasions",
+
+const dishes = [
+  { img: "https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=400&q=80&fit=crop", name: "Party Jollof Rice", desc: "Smoky, aromatic, unmissable" },
+  { img: "https://images.unsplash.com/photo-1567364816519-cbc9c4ffe1eb?w=400&q=80&fit=crop", name: "Grilled Chicken", desc: "Marinated, chargrilled perfection" },
+  { img: "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&q=80&fit=crop", name: "Egusi Soup", desc: "Rich, nutty, slow-cooked" },
+  { img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80&fit=crop", name: "Chef's Special", desc: "Daily fresh creation" },
 ];
 
 export default function About() {
   return (
-    <section id="about" style={{ background: "var(--imperial-cream)", padding: "96px 24px" }}>
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+    <section id="about" style={{ background: "var(--cream)", padding: "100px 24px" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
 
-        {/* Section header */}
-        <div style={{ textAlign: "center", marginBottom: "72px" }}>
-          <div className="font-cinzel" style={{ color: "#c9a84c", fontSize: "10px", letterSpacing: "5px", marginBottom: "16px" }}>
-            ✦ OUR STORY ✦
-          </div>
-          <h2 className="font-cinzel" style={{ fontSize: "clamp(28px, 4vw, 52px)", fontWeight: "800", color: "#1a0a2e", lineHeight: "1.15", marginBottom: "20px" }}>
-            Welcome to Imperial Kitchen
-          </h2>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px", marginBottom: "20px" }}>
-            <div style={{ height: "1px", width: "80px", background: "linear-gradient(90deg, transparent, #c9a84c)" }} />
-            <span style={{ color: "#c9a84c", fontSize: "18px" }}>👑</span>
-            <div style={{ height: "1px", width: "80px", background: "linear-gradient(90deg, #c9a84c, transparent)" }} />
-          </div>
-          <p className="font-cormorant" style={{ color: "#6b21a8", fontSize: "22px", fontStyle: "italic", fontWeight: "400" }}>
-            Your Trusted Partner for Delicious Meals & Memorable Events
-          </p>
-        </div>
-
-        {/* Main content grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
-
-          {/* Left: Text */}
+        {/* Top: text + large image */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center", marginBottom: "80px" }}>
           <div>
-            <p style={{ color: "#4a3060", fontSize: "16px", lineHeight: "1.9", marginBottom: "24px" }}>
-              Nestled in the heart of Papa Ashafa, Lagos, <strong style={{ color: "#1a0a2e" }}>Imperial Kitchen and Restaurant</strong> is 
-              more than just a place to eat — it&apos;s an experience. We have earned our perfect 5.0-star rating 
-              through an unwavering commitment to quality, freshness, and genuine Nigerian hospitality.
+            <p className="eyebrow" style={{ marginBottom: "16px" }}>✦ OUR STORY ✦</p>
+            <h2 className="font-playfair" style={{ fontSize: "clamp(32px, 4vw, 54px)", fontWeight: "800", color: "#0f0a1a", lineHeight: "1.12", marginBottom: "24px" }}>
+              Where Every Meal<br />
+              <em style={{ color: "#8b4513", fontStyle: "italic" }}>Tells a Story</em>
+            </h2>
+            <p style={{ color: "#5a4a38", fontSize: "16px", lineHeight: "1.85", marginBottom: "20px" }}>
+              Nestled in the heart of Papa Ashafa, Lagos, Imperial Kitchen and Restaurant has built a reputation for one thing above all else — food that makes people come back. Our perfect 5.0-star rating isn&apos;t just a number; it&apos;s the result of every early morning spent sourcing fresh ingredients, every soup simmered low and slow, every plate sent out with care.
             </p>
-            <p style={{ color: "#4a3060", fontSize: "16px", lineHeight: "1.9", marginBottom: "32px" }}>
-              Whether you&apos;re joining us for a hearty lunch, a romantic dinner, or entrusting us with 
-              your most important celebration, we bring the same imperial standard to every plate and 
-              every event. Our expert chefs craft each dish with care — from aromatic party jollof rice 
-              to slow-cooked soups and perfectly grilled proteins.
+            <p style={{ color: "#5a4a38", fontSize: "16px", lineHeight: "1.85", marginBottom: "32px" }}>
+              From our aromatic party jollof rice to our tender pepper soup and perfectly grilled proteins — we cook with the soul of Nigerian tradition and the precision of professionals. Whether you dine with us or invite us to cater your next celebration, you get the same imperial standard.
             </p>
-
-            {/* Key points */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-              {keyPoints.map((point) => (
-                <div key={point} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                  <div style={{
-                    width: "20px", height: "20px", borderRadius: "50%",
-                    background: "linear-gradient(135deg, #c9a84c, #f0d080)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    flexShrink: 0, marginTop: "2px",
-                    fontSize: "10px",
-                  }}>
-                    ✓
-                  </div>
-                  <span style={{ color: "#2d1b4e", fontSize: "14px", lineHeight: "1.6" }}>{point}</span>
+            <div style={{ display: "flex", gap: "32px" }}>
+              {[["5.0★", "Perfect Rating"], ["Fresh", "Daily Prep"], ["All Occasions", "Catering"]].map(([v, l]) => (
+                <div key={l}>
+                  <div className="font-playfair" style={{ color: "#c8a96e", fontSize: "22px", fontWeight: "700" }}>{v}</div>
+                  <div style={{ color: "#8a7a65", fontSize: "12px", marginTop: "2px" }}>{l}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right: Visual panel */}
+          {/* Large stacked photo */}
           <div style={{ position: "relative" }}>
-            {/* Main large card */}
             <div style={{
-              background: "linear-gradient(160deg, #1a0a2e 0%, #2d1b4e 60%, #3d0020 100%)",
-              borderRadius: "8px",
-              padding: "48px 40px",
-              border: "1px solid rgba(201,168,76,0.2)",
-              position: "relative",
-              overflow: "hidden",
-            }}>
-              {/* Decorative corner */}
-              <div style={{ position: "absolute", top: 0, left: 0, width: "60px", height: "60px", borderTop: "3px solid rgba(201,168,76,0.4)", borderLeft: "3px solid rgba(201,168,76,0.4)" }} />
-              <div style={{ position: "absolute", bottom: 0, right: 0, width: "60px", height: "60px", borderBottom: "3px solid rgba(201,168,76,0.4)", borderRight: "3px solid rgba(201,168,76,0.4)" }} />
-
-              <div style={{ textAlign: "center", marginBottom: "32px" }}>
-                <div style={{ fontSize: "48px", marginBottom: "8px" }}>👑</div>
-                <div className="font-cinzel gold-shimmer" style={{ fontSize: "15px", letterSpacing: "3px", marginBottom: "4px" }}>
-                  THE IMPERIAL PROMISE
-                </div>
-                <div className="font-cormorant" style={{ color: "rgba(253,248,240,0.6)", fontSize: "16px", fontStyle: "italic" }}>
-                  Quality you can taste in every bite
-                </div>
-              </div>
-
-              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                {[
-                  { emoji: "🍛", title: "Authentic Nigerian Cuisine", desc: "Traditional recipes, fresh ingredients" },
-                  { emoji: "🎉", title: "All Occasions Catered", desc: "Weddings, birthdays, corporate events" },
-                  { emoji: "⏰", title: "Open Until 8:30 PM Daily", desc: "Convenient for evening dining" },
-                  { emoji: "📍", title: "30 Suraogumakin Street", desc: "Papa Ashafa, Lagos 102212" },
-                ].map((item) => (
-                  <div
-                    key={item.title}
-                    style={{
-                      display: "flex", alignItems: "center", gap: "14px",
-                      background: "rgba(255,255,255,0.04)",
-                      borderRadius: "6px", padding: "12px 16px",
-                      border: "1px solid rgba(201,168,76,0.1)",
-                    }}
-                  >
-                    <span style={{ fontSize: "22px" }}>{item.emoji}</span>
-                    <div>
-                      <div style={{ color: "#fdf8f0", fontSize: "13px", fontWeight: "600", marginBottom: "2px" }}>{item.title}</div>
-                      <div style={{ color: "rgba(201,168,76,0.7)", fontSize: "11px" }}>{item.desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
+              borderRadius: "12px", overflow: "hidden",
+              aspectRatio: "4/5",
+              backgroundImage: "url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=85&fit=crop')",
+              backgroundSize: "cover", backgroundPosition: "center",
+              boxShadow: "0 32px 80px rgba(15,10,26,0.2)",
+            }} />
             {/* Floating badge */}
-            <div style={{
-              position: "absolute", top: "-20px", right: "-20px",
-              background: "linear-gradient(135deg, #c9a84c, #f0d080)",
-              borderRadius: "50%", width: "90px", height: "90px",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-              boxShadow: "0 8px 30px rgba(201,168,76,0.4)",
-              animation: "float 3s ease-in-out infinite",
+            <div className="float" style={{
+              position: "absolute", bottom: "-20px", left: "-20px",
+              background: "linear-gradient(135deg, #c8a96e, #e8c98a)",
+              borderRadius: "12px", padding: "20px 24px",
+              boxShadow: "0 12px 40px rgba(200,169,110,0.4)",
+              textAlign: "center",
             }}>
-              <div className="font-cinzel" style={{ color: "#1a0a2e", fontSize: "20px", fontWeight: "900", lineHeight: "1" }}>5.0</div>
-              <div style={{ color: "#1a0a2e", fontSize: "10px", fontWeight: "700" }}>★★★★★</div>
+              <div className="font-playfair" style={{ color: "#0f0a1a", fontSize: "28px", fontWeight: "800", lineHeight: "1" }}>5.0★</div>
+              <div className="font-cinzel" style={{ color: "#3a2a10", fontSize: "9px", letterSpacing: "1.5px", marginTop: "4px" }}>PERFECT RATING</div>
             </div>
+            {/* Second floating element */}
+            <div style={{
+              position: "absolute", top: "20px", right: "-16px",
+              background: "#0f0a1a", borderRadius: "10px", padding: "14px 18px",
+              border: "1px solid rgba(200,169,110,0.25)",
+            }}>
+              <div style={{ color: "#c8a96e", fontSize: "22px", marginBottom: "4px" }}>🍽️</div>
+              <div style={{ color: "#faf6f0", fontSize: "11px", fontWeight: "600" }}>Restaurant</div>
+              <div style={{ color: "rgba(250,246,240,0.5)", fontSize: "10px" }}>+ Catering</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Food photo grid */}
+        <div>
+          <div style={{ textAlign: "center", marginBottom: "40px" }}>
+            <p className="eyebrow" style={{ marginBottom: "12px" }}>✦ FROM OUR KITCHEN ✦</p>
+            <h3 className="font-playfair" style={{ fontSize: "clamp(24px, 3vw, 38px)", fontWeight: "700", color: "#0f0a1a" }}>
+              A Taste of What Awaits You
+            </h3>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px" }}>
+            {dishes.map((d) => (
+              <div key={d.name} className="lift" style={{
+                borderRadius: "10px", overflow: "hidden",
+                aspectRatio: "3/4", position: "relative",
+                cursor: "pointer",
+              }}>
+                <div style={{
+                  position: "absolute", inset: 0,
+                  backgroundImage: `url('${d.img}')`,
+                  backgroundSize: "cover", backgroundPosition: "center",
+                  transition: "transform 0.4s ease",
+                }} />
+                <div style={{
+                  position: "absolute", inset: 0,
+                  background: "linear-gradient(to top, rgba(15,10,26,0.85) 0%, rgba(15,10,26,0.15) 55%)",
+                }} />
+                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "16px" }}>
+                  <div className="font-playfair" style={{ color: "#faf6f0", fontSize: "15px", fontWeight: "600" }}>{d.name}</div>
+                  <div style={{ color: "rgba(200,169,110,0.9)", fontSize: "11px", marginTop: "2px" }}>{d.desc}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
       <style>{`
         @media (max-width: 768px) {
-          div[style*="grid-template-columns: 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
-          }
+          .about-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+          .dish-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
       `}</style>
     </section>

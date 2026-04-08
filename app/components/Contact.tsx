@@ -3,279 +3,162 @@ import { Phone, MapPin, Clock, Star } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section id="contact" style={{ background: "var(--imperial-cream)", padding: "96px 24px" }}>
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-
-        {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "72px" }}>
-          <div className="font-cinzel" style={{ color: "#c9a84c", fontSize: "10px", letterSpacing: "5px", marginBottom: "16px" }}>
-            ✦ FIND US ✦
-          </div>
-          <h2 className="font-cinzel" style={{ fontSize: "clamp(28px, 4vw, 52px)", fontWeight: "800", color: "#1a0a2e", lineHeight: "1.15", marginBottom: "20px" }}>
+    <section id="contact" style={{ background: "var(--cream)", padding: "100px 24px" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+        <div style={{ textAlign: "center", marginBottom: "64px" }}>
+          <p className="eyebrow" style={{ marginBottom: "14px" }}>✦ REACH US ✦</p>
+          <h2 className="font-playfair" style={{ fontSize: "clamp(30px, 4vw, 52px)", fontWeight: "800", color: "#0f0a1a", lineHeight: "1.12" }}>
             Visit Imperial Kitchen
           </h2>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px" }}>
-            <div style={{ height: "1px", width: "80px", background: "linear-gradient(90deg, transparent, #c9a84c)" }} />
-            <span style={{ color: "#c9a84c", fontSize: "18px" }}>👑</span>
-            <div style={{ height: "1px", width: "80px", background: "linear-gradient(90deg, #c9a84c, transparent)" }} />
-          </div>
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "start" }}>
 
-          {/* Left: Contact info */}
+          {/* Left: info + image */}
           <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginBottom: "40px" }}>
+            {/* Hero contact image */}
+            <div style={{
+              height: "240px", borderRadius: "12px", overflow: "hidden",
+              backgroundImage: "url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&q=80&fit=crop')",
+              backgroundSize: "cover", backgroundPosition: "center",
+              marginBottom: "32px",
+              boxShadow: "0 12px 48px rgba(15,10,26,0.15)",
+            }} />
 
-              {/* Phone */}
-              <a
-                href="tel:08074101786"
-                style={{
-                  display: "flex", alignItems: "center", gap: "20px",
-                  background: "white",
-                  border: "1px solid rgba(26,10,46,0.1)",
-                  borderRadius: "10px", padding: "24px",
-                  textDecoration: "none",
-                  transition: "all 0.3s",
-                  boxShadow: "0 2px 15px rgba(26,10,46,0.05)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-3px)";
-                  e.currentTarget.style.boxShadow = "0 10px 30px rgba(26,10,46,0.12)";
-                  e.currentTarget.style.borderColor = "rgba(201,168,76,0.4)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 2px 15px rgba(26,10,46,0.05)";
-                  e.currentTarget.style.borderColor = "rgba(26,10,46,0.1)";
-                }}
+            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              <a href="tel:08074101786" style={{
+                display: "flex", alignItems: "center", gap: "18px",
+                background: "#0f0a1a", borderRadius: "10px", padding: "20px 24px",
+                textDecoration: "none", transition: "transform 0.2s",
+              }}
+                onMouseEnter={e => e.currentTarget.style.transform = "translateX(4px)"}
+                onMouseLeave={e => e.currentTarget.style.transform = "translateX(0)"}
               >
-                <div style={{
-                  width: "56px", height: "56px", borderRadius: "50%",
-                  background: "linear-gradient(135deg, #1a0a2e, #2d1b4e)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  flexShrink: 0,
-                }}>
-                  <Phone size={22} color="#c9a84c" />
+                <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "linear-gradient(135deg, #c8a96e, #e8c98a)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <Phone size={20} color="#0f0a1a" />
                 </div>
                 <div>
-                  <div className="font-cinzel" style={{ color: "#6b5a80", fontSize: "9px", letterSpacing: "3px", marginBottom: "4px" }}>CALL US</div>
-                  <div className="font-cinzel" style={{ color: "#1a0a2e", fontSize: "22px", fontWeight: "700" }}>0807 410 1786</div>
-                  <div style={{ color: "#6b5a80", fontSize: "12px", marginTop: "2px" }}>
-                    For reservations, catering & inquiries
-                  </div>
+                  <div className="font-cinzel" style={{ color: "rgba(200,169,110,0.7)", fontSize: "9px", letterSpacing: "2.5px", marginBottom: "4px" }}>CALL US NOW</div>
+                  <div className="font-playfair" style={{ color: "#faf6f0", fontSize: "22px", fontWeight: "700" }}>0807 410 1786</div>
+                  <div style={{ color: "rgba(250,246,240,0.45)", fontSize: "12px" }}>For reservations, orders & catering</div>
                 </div>
               </a>
 
-              {/* Address */}
-              <div style={{
-                display: "flex", alignItems: "flex-start", gap: "20px",
-                background: "white",
-                border: "1px solid rgba(26,10,46,0.1)",
-                borderRadius: "10px", padding: "24px",
-                boxShadow: "0 2px 15px rgba(26,10,46,0.05)",
-              }}>
-                <div style={{
-                  width: "56px", height: "56px", borderRadius: "50%",
-                  background: "linear-gradient(135deg, #8b0000, #dc2626)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  flexShrink: 0,
-                }}>
-                  <MapPin size={22} color="#fdf8f0" />
+              <div style={{ display: "flex", alignItems: "flex-start", gap: "18px", background: "white", borderRadius: "10px", padding: "20px 24px", border: "1px solid rgba(90,74,56,0.1)" }}>
+                <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "#faf6f0", border: "1px solid rgba(200,169,110,0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <MapPin size={20} color="#c8a96e" />
                 </div>
                 <div>
-                  <div className="font-cinzel" style={{ color: "#6b5a80", fontSize: "9px", letterSpacing: "3px", marginBottom: "4px" }}>OUR LOCATION</div>
-                  <div style={{ color: "#1a0a2e", fontSize: "16px", fontWeight: "700", marginBottom: "2px" }}>
-                    30 Suraogumakin Street
-                  </div>
-                  <div style={{ color: "#4a3060", fontSize: "14px" }}>Papa Ashafa, Lagos 102212</div>
-                  <div style={{ color: "#6b5a80", fontSize: "12px", marginTop: "4px" }}>Location Code: J8C5+J6 Lagos</div>
+                  <div className="font-cinzel" style={{ color: "#8a7a65", fontSize: "9px", letterSpacing: "2.5px", marginBottom: "4px" }}>OUR LOCATION</div>
+                  <div style={{ color: "#0f0a1a", fontSize: "16px", fontWeight: "600" }}>30 Suraogumakin Street</div>
+                  <div style={{ color: "#8a7a65", fontSize: "13px" }}>Papa Ashafa, Lagos 102212</div>
                 </div>
               </div>
 
-              {/* Hours */}
-              <div style={{
-                display: "flex", alignItems: "flex-start", gap: "20px",
-                background: "white",
-                border: "1px solid rgba(26,10,46,0.1)",
-                borderRadius: "10px", padding: "24px",
-                boxShadow: "0 2px 15px rgba(26,10,46,0.05)",
-              }}>
-                <div style={{
-                  width: "56px", height: "56px", borderRadius: "50%",
-                  background: "linear-gradient(135deg, #6b21a8, #9333ea)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  flexShrink: 0,
-                }}>
-                  <Clock size={22} color="#fdf8f0" />
+              <div style={{ display: "flex", alignItems: "center", gap: "18px", background: "white", borderRadius: "10px", padding: "20px 24px", border: "1px solid rgba(90,74,56,0.1)" }}>
+                <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "#faf6f0", border: "1px solid rgba(200,169,110,0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <Clock size={20} color="#c8a96e" />
                 </div>
-                <div style={{ flex: 1 }}>
-                  <div className="font-cinzel" style={{ color: "#6b5a80", fontSize: "9px", letterSpacing: "3px", marginBottom: "8px" }}>OPENING HOURS</div>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <span style={{ color: "#1a0a2e", fontSize: "15px", fontWeight: "600" }}>Mon — Sun</span>
-                    <span style={{ color: "#6b21a8", fontSize: "14px", fontWeight: "700" }}>Until 8:30 PM</span>
-                  </div>
-                  <div style={{
-                    display: "inline-flex", alignItems: "center", gap: "6px",
-                    marginTop: "8px",
-                    background: "rgba(107,33,168,0.08)",
-                    borderRadius: "50px", padding: "4px 12px",
-                  }}>
-                    <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#22c55e", animation: "pulse 2s infinite" }} />
-                    <span style={{ color: "#22c55e", fontSize: "12px", fontWeight: "600" }}>Open Now</span>
+                <div>
+                  <div className="font-cinzel" style={{ color: "#8a7a65", fontSize: "9px", letterSpacing: "2.5px", marginBottom: "4px" }}>HOURS</div>
+                  <div style={{ color: "#0f0a1a", fontSize: "16px", fontWeight: "600" }}>Monday – Sunday</div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "3px" }}>
+                    <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#22c55e", animation: "blink 2s infinite" }} />
+                    <span style={{ color: "#22c55e", fontSize: "13px", fontWeight: "600" }}>Open · Closes 8:30 PM</span>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Rating callout */}
-            <div style={{
-              background: "linear-gradient(135deg, #1a0a2e, #2d1b4e)",
-              borderRadius: "10px",
-              padding: "28px",
-              display: "flex", alignItems: "center", gap: "20px",
-              border: "1px solid rgba(201,168,76,0.2)",
-            }}>
-              <div style={{ textAlign: "center" }}>
-                <div className="font-cinzel gold-shimmer" style={{ fontSize: "36px", fontWeight: "900", lineHeight: "1" }}>5.0</div>
-                <div style={{ display: "flex", gap: "3px", justifyContent: "center", marginTop: "4px" }}>
-                  {[1,2,3,4,5].map(i => <Star key={i} size={12} fill="#c9a84c" color="#c9a84c" />)}
+              {/* Rating card */}
+              <div style={{ display: "flex", alignItems: "center", gap: "18px", background: "linear-gradient(135deg, #0f0a1a, #1c1228)", borderRadius: "10px", padding: "20px 24px", border: "1px solid rgba(200,169,110,0.2)" }}>
+                <div style={{ textAlign: "center" }}>
+                  <div className="font-playfair" style={{ color: "#c8a96e", fontSize: "30px", fontWeight: "800", lineHeight: "1" }}>5.0</div>
+                  <div style={{ display: "flex", gap: "2px", marginTop: "4px" }}>
+                    {[1,2,3,4,5].map(i => <Star key={i} size={10} fill="#c8a96e" color="#c8a96e" />)}
+                  </div>
                 </div>
-              </div>
-              <div>
-                <div className="font-cinzel" style={{ color: "#c9a84c", fontSize: "12px", letterSpacing: "1.5px", marginBottom: "4px" }}>PERFECT RATING</div>
-                <div style={{ color: "rgba(253,248,240,0.7)", fontSize: "13px", lineHeight: "1.5" }}>
-                  100% customer satisfaction. Trusted by Lagos families and businesses for memorable dining experiences.
+                <div>
+                  <div className="font-cinzel" style={{ color: "#c8a96e", fontSize: "10px", letterSpacing: "2px", marginBottom: "4px" }}>PERFECT RATING</div>
+                  <div style={{ color: "rgba(250,246,240,0.6)", fontSize: "13px", lineHeight: "1.5" }}>100% satisfaction — trusted by Lagos families &amp; businesses</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right: Inquiry form */}
-          <div style={{
-            background: "white",
-            borderRadius: "12px",
-            padding: "40px",
-            boxShadow: "0 4px 40px rgba(26,10,46,0.08)",
-            border: "1px solid rgba(201,168,76,0.15)",
-          }}>
-            <div style={{ marginBottom: "28px" }}>
-              <h3 className="font-cinzel" style={{ color: "#1a0a2e", fontSize: "20px", fontWeight: "700", marginBottom: "6px" }}>
-                Send Us a Message
-              </h3>
-              <p style={{ color: "#6b5a80", fontSize: "13px" }}>
-                For catering quotes, reservations, or any inquiry — we&apos;ll respond promptly!
-              </p>
-            </div>
+          {/* Right: form */}
+          <div style={{ background: "white", borderRadius: "14px", padding: "40px", border: "1px solid rgba(90,74,56,0.1)", boxShadow: "0 8px 48px rgba(15,10,26,0.07)" }}>
+            <h3 className="font-playfair" style={{ color: "#0f0a1a", fontSize: "24px", fontWeight: "700", marginBottom: "6px" }}>
+              Send Us a Message
+            </h3>
+            <p style={{ color: "#8a7a65", fontSize: "13px", marginBottom: "32px" }}>
+              Catering quotes, reservations, or any inquiry — we respond quickly.
+            </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                { label: "Full Name", type: "text", placeholder: "Your name" },
-                { label: "Phone Number", type: "tel", placeholder: "Your phone number" },
-                { label: "Email Address", type: "email", placeholder: "Your email address" },
-              ].map((field) => (
-                <div key={field.label}>
-                  <label className="font-cinzel" style={{ display: "block", color: "#2d1b4e", fontSize: "9px", letterSpacing: "2px", marginBottom: "6px" }}>
-                    {field.label.toUpperCase()}
-                  </label>
-                  <input
-                    type={field.type}
-                    placeholder={field.placeholder}
-                    style={{
-                      width: "100%", padding: "12px 16px",
-                      border: "1px solid rgba(26,10,46,0.15)",
-                      borderRadius: "6px", fontSize: "14px",
-                      color: "#1a0a2e", outline: "none",
-                      background: "#fdf8f0",
-                      transition: "border-color 0.2s",
-                    }}
-                    onFocus={(e) => { e.target.style.borderColor = "#c9a84c"; }}
-                    onBlur={(e) => { e.target.style.borderColor = "rgba(26,10,46,0.15)"; }}
+                { label: "FULL NAME", type: "text", placeholder: "Your full name" },
+                { label: "PHONE NUMBER", type: "tel", placeholder: "Your phone number" },
+                { label: "EMAIL ADDRESS", type: "email", placeholder: "Your email address" },
+              ].map(f => (
+                <div key={f.label}>
+                  <label className="font-cinzel" style={{ display: "block", color: "#8a7a65", fontSize: "9px", letterSpacing: "2px", marginBottom: "7px" }}>{f.label}</label>
+                  <input type={f.type} placeholder={f.placeholder} style={{
+                    width: "100%", padding: "12px 16px",
+                    border: "1px solid rgba(90,74,56,0.2)", borderRadius: "7px",
+                    fontSize: "14px", color: "#0f0a1a", outline: "none", background: "#faf6f0",
+                    transition: "border-color 0.2s",
+                  }}
+                    onFocus={e => e.target.style.borderColor = "#c8a96e"}
+                    onBlur={e => e.target.style.borderColor = "rgba(90,74,56,0.2)"}
                   />
                 </div>
               ))}
 
               <div>
-                <label className="font-cinzel" style={{ display: "block", color: "#2d1b4e", fontSize: "9px", letterSpacing: "2px", marginBottom: "6px" }}>
-                  INQUIRY TYPE
-                </label>
-                <select
-                  style={{
-                    width: "100%", padding: "12px 16px",
-                    border: "1px solid rgba(26,10,46,0.15)",
-                    borderRadius: "6px", fontSize: "14px",
-                    color: "#1a0a2e", outline: "none",
-                    background: "#fdf8f0",
-                    cursor: "pointer",
-                  }}
-                >
+                <label className="font-cinzel" style={{ display: "block", color: "#8a7a65", fontSize: "9px", letterSpacing: "2px", marginBottom: "7px" }}>INQUIRY TYPE</label>
+                <select style={{ width: "100%", padding: "12px 16px", border: "1px solid rgba(90,74,56,0.2)", borderRadius: "7px", fontSize: "14px", color: "#0f0a1a", outline: "none", background: "#faf6f0", cursor: "pointer" }}>
                   <option>Restaurant Reservation</option>
                   <option>Wedding Catering</option>
                   <option>Birthday Party Catering</option>
                   <option>Corporate Catering</option>
                   <option>Small Chops Order</option>
-                  <option>Other Catering</option>
                   <option>General Inquiry</option>
                 </select>
               </div>
 
               <div>
-                <label className="font-cinzel" style={{ display: "block", color: "#2d1b4e", fontSize: "9px", letterSpacing: "2px", marginBottom: "6px" }}>
-                  MESSAGE
-                </label>
-                <textarea
-                  placeholder="Tell us about your event, number of guests, date, preferences..."
-                  rows={4}
-                  style={{
-                    width: "100%", padding: "12px 16px",
-                    border: "1px solid rgba(26,10,46,0.15)",
-                    borderRadius: "6px", fontSize: "14px",
-                    color: "#1a0a2e", outline: "none",
-                    background: "#fdf8f0",
-                    resize: "vertical",
-                    fontFamily: "Lato, sans-serif",
-                    transition: "border-color 0.2s",
-                  }}
-                  onFocus={(e) => { e.target.style.borderColor = "#c9a84c"; }}
-                  onBlur={(e) => { e.target.style.borderColor = "rgba(26,10,46,0.15)"; }}
+                <label className="font-cinzel" style={{ display: "block", color: "#8a7a65", fontSize: "9px", letterSpacing: "2px", marginBottom: "7px" }}>MESSAGE</label>
+                <textarea rows={4} placeholder="Tell us about your event, number of guests, date, and any preferences..." style={{
+                  width: "100%", padding: "12px 16px",
+                  border: "1px solid rgba(90,74,56,0.2)", borderRadius: "7px",
+                  fontSize: "14px", color: "#0f0a1a", outline: "none", background: "#faf6f0",
+                  resize: "vertical", fontFamily: "Inter, sans-serif",
+                  transition: "border-color 0.2s",
+                }}
+                  onFocus={e => e.target.style.borderColor = "#c8a96e"}
+                  onBlur={e => e.target.style.borderColor = "rgba(90,74,56,0.2)"}
                 />
               </div>
 
-              <button
-                className="font-cinzel"
-                style={{
-                  width: "100%",
-                  background: "linear-gradient(135deg, #1a0a2e, #2d1b4e)",
-                  color: "#c9a84c", padding: "14px",
-                  border: "none", borderRadius: "6px",
-                  fontWeight: "700", fontSize: "12px", letterSpacing: "2px",
-                  cursor: "pointer",
-                  transition: "opacity 0.2s",
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.85"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
+              <button className="font-cinzel" style={{
+                width: "100%", background: "linear-gradient(135deg, #0f0a1a, #1c1228)",
+                color: "#c8a96e", padding: "15px", border: "none",
+                borderRadius: "7px", fontWeight: "700", fontSize: "11px",
+                letterSpacing: "2.5px", cursor: "pointer", transition: "opacity 0.2s",
+              }}
+                onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
+                onMouseLeave={e => e.currentTarget.style.opacity = "1"}
               >
                 SEND MESSAGE 👑
               </button>
-
-              <p style={{ color: "#6b5a80", fontSize: "11px", textAlign: "center" }}>
-                Or call us directly: <a href="tel:08074101786" style={{ color: "#6b21a8", fontWeight: "700" }}>0807 410 1786</a>
-              </p>
             </div>
           </div>
         </div>
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
-          div[style*="grid-template-columns: 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.4; }
-        }
+        @media(max-width:768px){div[style*="grid-template-columns: 1fr 1fr"]{grid-template-columns:1fr!important;}}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:0.4}}
       `}</style>
     </section>
   );
